@@ -1,0 +1,38 @@
+.Ishop_list {
+    border-collapse: collapse;
+}
+.Ishop_list > caption {
+    font-size: 250%;
+}
+.Ishop_list_head >tr> th {
+    border: 1px solid black;
+    background-color: beige;
+}
+.Ishop_list_items >tr > td{
+    border: 1px solid black;
+}
+.Ishop_items_item_name {
+    background-color: aliceblue;
+    font-size: 120%;
+    text-align: center;
+}
+.Ishop_items_item_price {
+    color:red;
+    text-align: center;
+    font-size: 200%;
+    font-weight: 700;
+}
+.Ishop_items_item_photo {
+    width: 200px;
+    height: 200px;
+}
+.Ishop_items_item_quantity {
+    text-align: center;
+    color: brown;
+    font-size: 120%;
+    font-weight: 600;
+}
+.Ishop_items_item_photo>img {
+    width: 100%;
+    height: 100%;
+}
