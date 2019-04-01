@@ -9,6 +9,18 @@
     <title>Document</title>
 </head>
 <body>
-    
+<script src="FilterComponent.js"></script>  
+<link rel="stylesheet" type="text/css" href="FilterComponent.css" /> 
+<div id='container'></div>
+<script> 
+'use strict'
+var initialStrings = ['конференция','водопровод','юриспруденция','техника','селектор','возмущение','блокнот'];
+ReactDOM.render(
+    React.createElement(FilterComponent,{strings: initialStrings, defaultCheckboxChecked: false,defaultInputTextValue:''},),
+    document.getElementById('container')
+)
+</script> 
+
+
 </body>
 </html>

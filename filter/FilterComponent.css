@@ -1,0 +1,8 @@
+.FilterComponentContainer {
+    width: 300px;
+}
+.FilterComponentContainerList{
+    width: 100%;
+    height: 100px;
+    overflow: auto;
+}
