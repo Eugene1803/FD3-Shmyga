@@ -1,0 +1,13 @@
+.ItemComponentTr>td{
+    height: 50px;
+}
+.ItemComponentTr>td>img, .ItemComponentTrChosen>td>img{
+    height: 100%;
+}
+.ItemComponentTrChosen>td{
+    
+    height: 50px;
+}
+.ItemComponentTrChosen{
+    background-color: red;
+}
