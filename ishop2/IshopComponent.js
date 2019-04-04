@@ -4,7 +4,7 @@ var IshopComponent = React.createClass({
     getInitialState: function() {
       return { 
         chosenItemCode: null,
-        deletedItemCode: [],
+        displayedItems: this.props.itemsList.slice(0),
       };
     },
     chooseItem: function(code){
@@ -14,20 +14,11 @@ var IshopComponent = React.createClass({
     deleteItems: function(code){
       var confirmation = confirm('Вы уверены, что хотите удалить товар?');
       if(confirmation){
-      this.state.deletedItemCode.push(code);
-      this.setState({deletedItemCode: this.state.deletedItemCode});
+      var displayedItems = this.state.displayedItems.filter(v => (v.code !== code));
+      this.setState({displayedItems: displayedItems});
       }
     }
     ,
-    displayedItems: null,
-    showItems: function(){
-      this.displayedItems = [];
-      this.props.itemsList.forEach(v => {
-        if(this.state.deletedItemCode.indexOf(v.code) == -1){
-          this.displayedItems.push(v);
-        }
-      })
-    },
     render: function() {
         var tableHead = React.DOM.thead({className: 'IshopTableHead',},
         React.DOM.tr(null,
@@ -37,8 +28,7 @@ var IshopComponent = React.createClass({
         React.DOM.th(null,this.props.cols.quantity),
         React.DOM.th(null,this.props.cols.control)
         ));
-        this.showItems();
-        var allItems =  this.displayedItems.map(v => 
+        var allItems =  this.state.displayedItems.map(v => 
             React.createElement(ItemComponent,{key: v.code,currItem: v,chosen: (this.state.chosenItemCode === v.code)?true:false, cbChooseItem: this.chooseItem,cbDeleteItem: this.deleteItems})
           
         ) 
