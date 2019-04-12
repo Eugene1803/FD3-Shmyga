@@ -1,3 +1,6 @@
 .AddEditButtonDisabled {
     opacity: 0.6;
 }
+.ValidationString {
+    color:red;
+}

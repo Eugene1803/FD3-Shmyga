@@ -29,29 +29,27 @@ class ItemForm extends React.Component {
     formIsValid: this.props.item?true: false,
     validState: this.props.item?{name: true, url:true, price: true, quantity: true}:{name: false, url:false, price: false, quantity: false}
   }
-
+  componentWillReceiveProps(newProps) {
+    if(this.props.item !== newProps.item || this.props.workMode !== newProps.workMode) {
+      this.setState(
+        {
+          item: newProps.item,
+          name: {value: newProps.item?newProps.item.name:'', validString: ''},
+          url: {value:newProps.item?newProps.item.url:'', validString: ''},
+          price: {value: newProps.item?newProps.item.price:'', validString: ''},
+          quantity: {value: newProps.item?newProps.item.quantity:'', validString: ''},
+          formIsValid: newProps.item?true: false,
+          validState: newProps.item?{name: true, url:true, price: true, quantity: true}:{name: false, url:false, price: false, quantity: false}
+        }
+      )
+     
+   }
+  }
   itemSelected = (EO) => {
     this.props.cbItemSelected(this.props.item.code);
   }
   validate = (EO) => {
-    if(this.state.item !== this.props.item){
-      this.setState(
-        {
-          item: this.props.item,
-          name: {value: this.props.item?this.props.item.name:'', validString: ''},
-          url: {value:this.props.item?this.props.item.url:'', validString: ''},
-          price: {value: this.props.item?this.props.item.price:'', validString: ''},
-          quantity: {value: this.props.item?this.props.item.quantity:'', validString: ''},
-          formIsValid: this.props.item?true: false,
-          validState: this.props.item?{name: true, url:true, price: true, quantity: true}:{name: false, url:false, price: false, quantity: false}
-        }
-      )
-      }
-    if(EO.target.getAttribute('data') === 'submit'){
-      if(!this.props.isEditedNow){
-          return;
-      }
-    }
+    
     var validState = this.state.validState; 
     var formIsValid = this.state.formIsValid; 
     if(EO.target.getAttribute('data') === 'name' || EO.target.getAttribute('data') === 'submit'){
@@ -117,11 +115,12 @@ class ItemForm extends React.Component {
             }
             return true;
           }
-
+          
           formIsValid = getValidStatus();
           this.setState({formIsValid:formIsValid })
           if(EO.target.getAttribute('data') === 'submit'){
-            if(!formIsValid ){
+
+            if(!formIsValid || !this.props.isEditedNow){
               return;
             }
             else {
@@ -136,6 +135,7 @@ class ItemForm extends React.Component {
   }
   
   cancelEdit = () => {
+    /*
     this.setState(
       {
         item: this.props.item,
@@ -147,6 +147,7 @@ class ItemForm extends React.Component {
         validState: this.props.item?{name: true, url:true, price: true, quantity: true}:{name: false, url:false, price: false, quantity: false}
       }
     )
+    */
     this.props.cbCancelEdit();
   }
   
@@ -170,25 +171,25 @@ class ItemForm extends React.Component {
     }
     else if(this.props.workMode === 2){
       return (
-        <div>
+        <div >
         <h2>{'Editing ID: ' + this.props.item.code}</h2>
-        <label>{'name'}<input data={'name'} type={'text'} value={(this.state.item !== this.props.item)?this.props.item.name:this.state.name.value} onChange={this.validate}/></label><span>{this.state.name.validString}</span><br/>
-        <label>{'url'}<input data={'url'} type={'text'} value={(this.state.item !== this.props.item)?this.props.item.url:this.state.url.value} onChange={this.validate}/></label><span>{this.state.url.validString}</span><br/>
-        <label>{'price'} <input data={'price'} type='text' value={(this.state.item !== this.props.item)?this.props.item.price:this.state.price.value} onChange={this.validate}/></label><span>{this.state.price.validString}</span><br/>
-        <label>{'quantity'}<input data={'quantity'} type={'text'} value={(this.state.item !== this.props.item)?this.props.item.quantity:this.state.quantity.value} onChange={this.validate}/></label><span>{this.state.quantity.validString}</span><br/>
-        <button onClick={this.validate} data={'submit'} className={this.state.formIsValid?null:'AddEditButtonDisabled'}>{this.props.workMode === 2 && 'edit' || this.props.workMode === 3 && 'add'}</button><button onClick={this.cancelEdit}>{'cancel'}</button>
+        <label>{'name'}<input data={'name'} type={'text'} value={(this.state.item !== this.props.item)?this.props.item.name:this.state.name.value} onChange={this.validate}/></label><span className={'ValidationString'}>{this.state.name.validString}</span><br/>
+        <label>{'url'}<input data={'url'} type={'text'} value={(this.state.item !== this.props.item)?this.props.item.url:this.state.url.value} onChange={this.validate}/></label><span className={'ValidationString'}>{this.state.url.validString}</span><br/>
+        <label>{'price'} <input data={'price'} type='text' value={(this.state.item !== this.props.item)?this.props.item.price:this.state.price.value} onChange={this.validate}/></label><span className={'ValidationString'}>{this.state.price.validString}</span><br/>
+        <label>{'quantity'}<input data={'quantity'} type={'text'} value={(this.state.item !== this.props.item)?this.props.item.quantity:this.state.quantity.value} onChange={this.validate}/></label><span className={'ValidationString'}>{this.state.quantity.validString}</span><br/>
+        <button onClick={this.validate} data={'submit'} className={this.state.formIsValid && this.props.isEditedNow && 'AddEditButtonAnabled' || 'AddEditButtonDisabled'}>{this.props.workMode === 2 && 'save' || this.props.workMode === 3 && 'add'}</button><button onClick={this.cancelEdit}>{'cancel'}</button>
         </div>
       )
     }
     
     else if(this.props.workMode === 3){
       return(
-        <div>
+        <div >
         <h2>{'Adding ID: ' + (this.props.newItemCode+1)}</h2>
-        <label>{'name'}<input data={'name'} type={'text'} value={this.props.isEditedNow?this.state.name.value:''} onChange={this.validate}/></label><span>{this.state.name.validString}</span><br/>
-        <label>{'url'}<input data={'url'} type={'text'} value={this.props.isEditedNow?this.state.url.value:''} onChange={this.validate}/></label><span>{this.state.url.validString}</span><br/>
-        <label>{'price'} <input data={'price'} type='text' value={this.props.isEditedNow?this.state.price.value:''} onChange={this.validate}/></label><span>{this.state.price.validString}</span><br/>
-        <label>{'quantity'}<input data={'quantity'} type={'text'} value={this.props.isEditedNow?this.state.quantity.value:''} onChange={this.validate}/></label><span>{this.state.quantity.validString}</span><br/>
+        <label>{'name'}<input data={'name'} type={'text'} value={this.props.isEditedNow?this.state.name.value:''} onChange={this.validate}/></label><span className={'ValidationString'}>{this.state.name.validString}</span><br/>
+        <label>{'url'}<input data={'url'} type={'text'} value={this.props.isEditedNow?this.state.url.value:''} onChange={this.validate}/></label><span className={'ValidationString'}>{this.state.url.validString}</span><br/>
+        <label>{'price'} <input data={'price'} type='text' value={this.props.isEditedNow?this.state.price.value:''} onChange={this.validate}/></label><span className={'ValidationString'}>{this.state.price.validString}</span><br/>
+        <label>{'quantity'}<input data={'quantity'} type={'text'} value={this.props.isEditedNow?this.state.quantity.value:''} onChange={this.validate}/></label><span className={'ValidationString'}>{this.state.quantity.validString}</span><br/>
         <button onClick={this.validate} data={'submit'} className={this.state.formIsValid?null:'AddEditButtonDisabled'}>{this.props.workMode === 2 && 'edit' || this.props.workMode === 3 && 'add'}</button><button onClick={this.cancelEdit}>{'cancel'}</button>
         </div>
       )

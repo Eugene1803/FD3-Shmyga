@@ -64,7 +64,7 @@ class IshopComponent extends React.Component {
     for(let i of allItems){
       if(item.code === i.code){
         allItems[allItems.indexOf(i)] = item; 
-        this.setState({allItems: allItems});
+        this.setState({allItems: allItems, usedItem: item,});
         return;
       }
     }
