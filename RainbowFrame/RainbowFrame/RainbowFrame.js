@@ -32,7 +32,7 @@ class RainbowFrame extends React.Component {
     }, start
       )
     return (
-       <div>{frame}</div>
+       frame
     )
     ;
 
