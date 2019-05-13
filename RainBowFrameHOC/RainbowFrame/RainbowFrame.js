@@ -27,6 +27,10 @@ class RainbowFrame extends React.Component {
     
     let colors=['red','orange', 'yellow','green', '#00BFFF', 'blue', 'purple'];
     let FramedFragment=withRainbowFrame(colors)(Fragment);
+    let a = <div>
+      <span></span>
+    </div>;
+    console.log(a);
   return (
     <FramedFragment>
        Hello
