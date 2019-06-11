@@ -1,4 +1,4 @@
-﻿import { COUNTRIES_LOADING, COUNTRIES_ERROR, COUNTRIES_SET } from './countriesAC';
+﻿//import { COUNTRIES_LOADING, COUNTRIES_ERROR, COUNTRIES_SET } from './countriesAC';
 
 const initState={
 
@@ -7,10 +7,10 @@ const initState={
 
 }
 
-function countriesReducer(state=initState,action) {
+function bikesReducer(state=initState,action) {
   switch (action.type) {
 
-    case COUNTRIES_LOADING: {
+    case 'BIKES_LOADING': {
       let newState={
         status:1,
         data:null,
@@ -18,7 +18,7 @@ function countriesReducer(state=initState,action) {
       return newState;
     }
 
-    case COUNTRIES_ERROR: {
+    case 'BIKES_ERROR': {
       let newState={
         status:2,
         data:null,
@@ -26,10 +26,10 @@ function countriesReducer(state=initState,action) {
       return newState;
     }
 
-    case COUNTRIES_SET: {
+    case 'BIKES_SET': {
       let newState={
-        status:3,
-        data:action.countries,
+        status:action.status,
+        data:action.data,
       };
       return newState;
     }
@@ -39,4 +39,4 @@ function countriesReducer(state=initState,action) {
   }
 }
 
-export default countriesReducer;
+export default bikesReducer;

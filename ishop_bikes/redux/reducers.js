@@ -1,10 +1,9 @@
 ﻿import { combineReducers } from 'redux';
-
-import countriesReducer from "./countriesReducer";
-
+import bikesReducer from "./bikesReducer";
+import userReducer from './userReducer';
 let combinedReducer=combineReducers({
-    countries: countriesReducer, // редьюсер countriesReducer отвечает за раздел state под именем countries
-    // + другие редьюсеры
+    bikes: bikesReducer, 
+    userData: userReducer,
 });
 
 export default combinedReducer;

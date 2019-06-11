@@ -1,0 +1,18 @@
+div.LogInRegFormContainer {
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed;
+    background-color: rgba(0,0,0,0.7)
+} 
+div.LogInRegForm {
+    background-color: snow;
+    position: absolute;
+    width: 80%;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+}
+div.LogInRegFormLoading{
+    color: snow;
+    font-size: 2em
+}

@@ -1,0 +1,69 @@
+{
+  "bikes": [
+    {
+      "id": 1,
+      "producer": "Aist",
+      "model": "6furyfgrufg",
+      "quantity": 7,
+      "price": 500,
+      "yearProd": "2017",
+      "speedQuantity": "16",
+      "ageGroup":"baby",
+      "bikeClass":"mountain"
+    },
+    {
+      "id": 2,
+      "producer": "Cronus",
+      "model": "6furyfgrufg",
+      "quantity": 7,
+      "price": 350,
+      "yearProd": "2019",
+      "speedQuantity": "24",
+      "ageGroup":"adolescent",
+      "bikeClass":"city"
+    },{
+      "id": 3,
+      "producer": "Challenger",
+      "model": "6furyfgrufg",
+      "quantity": 7,
+      "price": 500,
+      "yearProd": "2017",
+      "speedQuantity": "32",
+      "ageGroup":"mature",
+      "bikeClass":"highway"
+    },{
+      "id": 4,
+      "producer": "Aspect",
+      "model": "6furyfgrufg",
+      "quantity": 7,
+      "price": 500,
+      "yearProd": "2018",
+      "speedQuantity": "24",
+      "ageGroup":"baby",
+      "bikeClass":"mountain"
+    },{
+      "id": 5,
+      "producer": "Stream",
+      "model": "6furyfgrufg",
+      "quantity": 7,
+      "price": 1000,
+      "yearProd": "2018",
+      "speedQuantity": "32",
+      "ageGroup":"mature",
+      "bikeClass":"mountain"
+    },{
+      "id": 6,
+      "producer": "Aist",
+      "model": "6furyfgrufg",
+      "quantity": 7,
+      "price": 750,
+      "yearProd": "2019",
+      "speedQuantity": "16",
+      "ageGroup":"baby",
+      "bikeClass":"city"
+    }
+  ],
+  "users":[
+    {"id":1, "name": "Eugene", "eMail":"shmyga-es@yandex.by","passWord": "123456","phone":"+375292837284","basket":[],"purchase":[]}
+   ]
+}
