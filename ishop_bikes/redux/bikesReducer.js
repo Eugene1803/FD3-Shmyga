@@ -33,7 +33,15 @@ function bikesReducer(state=initState,action) {
       };
       return newState;
     }
-    
+    case "COMMENT_SENT": {
+      let newState = {...state};
+      newState.data.forEach((v,i) => {
+        if(action.updatedItem.id == v.id){
+          newState.data[i] = action.updatedItem;
+        }
+      })
+      return newState;
+    }
     default:
       return state;
   }

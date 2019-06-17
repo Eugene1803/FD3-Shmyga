@@ -12,7 +12,11 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import './MainPage.css'
 class MainPage extends React.PureComponent {
-          
+  componentDidMount(){
+    if(!('bikesLocalStorage' in localStorage)){
+    localStorage.bikesLocalStorage = JSON.stringify({basket:{}, user:null})
+    }
+  }        
   render() {
     console.log('MainPage render');
     return (

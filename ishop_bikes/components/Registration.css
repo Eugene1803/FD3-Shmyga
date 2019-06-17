@@ -2,7 +2,8 @@ div.LogInRegFormContainer {
     min-width: 100%;
     min-height: 100%;
     position: fixed;
-    background-color: rgba(0,0,0,0.7)
+    background-color: rgba(0,0,0,0.7);
+    z-index: 20;
 } 
 div.LogInRegForm {
     background-color: snow;
@@ -15,4 +16,42 @@ div.LogInRegForm {
 div.LogInRegFormLoading{
     color: snow;
     font-size: 2em
+}
+.LogInRegFormContainer .ButtonValid {
+    background-color: green;
+    color: snow;
+}
+
+.LogInRegFormContainer .Link {
+    color: blue;
+    cursor: pointer;
+}
+.LogInRegFormContainer .Link:hover {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}    
+.LogInRegFormContainer .Cabinet {
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    top: 5%;
+    min-height: 50%;
+    box-shadow: 5px 5px snow;
+    background-color: snow;
+}
+.CabinetOrderCotainer{
+    display: flex;
+}
+.CabinetOrderCotainer .Date{
+    flex-grow: 1
+}
+.CabinetOrderCotainer .Time{
+    flex-grow: 1
+}
+.CabinetOrderCotainer .Items{
+    flex-grow: 4
+}
+.CabinetOrderCotainer .Total{
+    flex-grow: 1
 }

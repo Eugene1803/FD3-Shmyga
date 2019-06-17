@@ -1,0 +1,14 @@
+.PopUpMessage {
+    position: fixed;
+    animation: PopUpMessageDissapear 5s ;
+    background-color: blue;
+    color: snow;
+    top: -100%;
+}
+@keyframes PopUpMessageDissapear 
+{
+    from {top: -100%}
+    20%{top:1%}
+    80% {top:1%}
+    to {top: -100%}
+}

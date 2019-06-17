@@ -3,55 +3,217 @@
     {
       "id": 1,
       "producer": "Aist",
-      "model": "6furyfgrufg",
-      "quantity": 7,
+      "model": "Cruiser 2HRp",
+      "quantity": 0,
       "price": 500,
       "yearProd": "2017",
       "speedQuantity": "16",
-      "ageGroup":"baby",
-      "bikeClass":"mountain"
+      "ageGroup": "baby",
+      "bikeClass": "mountain",
+      "score": 5,
+      "comments": [
+        {
+          "date": "17.06.2019",
+          "time": "17:6",
+          "user": "unnamed",
+          "content": "dfsdf"
+        },
+        {
+          "date": "17.06.2019",
+          "time": "17:08",
+          "user": "unnamed",
+          "content": "fsdfsdf"
+        },
+        {
+          "date": "17.06.2019",
+          "time": "17:19",
+          "user": "unnamed",
+          "content": "rtgrtgrgtrgrtgr"
+        },
+        {
+          "date": "17.06.2019",
+          "time": "17:19",
+          "user": "unnamed",
+          "content": "tgtgtgtg"
+        },
+        {
+          "date": "17.06.2019",
+          "time": "17:20",
+          "user": "unnamed",
+          "content": "fgbfgbfb"
+        },
+        {
+          "date": "17.06.2019",
+          "time": "17:22",
+          "user": "unnamed",
+          "content": "fsdfsdfsdfsdfdsf"
+        },
+        {
+          "date": "17.06.2019",
+          "time": "17:23",
+          "user": "unnamed",
+          "content": "dfvdfvdfvdfvdfvdv"
+        },
+        {
+          "date": "17.06.2019",
+          "time": "17:24",
+          "user": "unnamed",
+          "content": "gbfbfbfgbfgbfgbfgbfgbfgb"
+        },
+        {
+          "date": "17.06.2019",
+          "time": "17:25",
+          "user": "unnamed",
+          "content": "zxczxczxczxc"
+        },
+        {
+          "date": "17.06.2019",
+          "time": "17:26",
+          "user": "unnamed",
+          "content": "erferfreferf"
+        },
+        {
+          "date": "17.06.2019",
+          "time": "17:30",
+          "user": "unnamed",
+          "content": "dfvdfvdvdfv"
+        },
+        {
+          "date": "17.06.2019",
+          "time": "17:32",
+          "user": "unnamed",
+          "content": "jljkljlkjlkj"
+        },
+        {
+          "date": "17.06.2019",
+          "time": "17:35",
+          "user": "unnamed",
+          "content": "ferferf"
+        },
+        {
+          "date": "17.06.2019",
+          "time": "17:38",
+          "user": "unnamed",
+          "content": "fgbfgbfgb"
+        },
+        {
+          "date": "17.06.2019",
+          "time": "17:41",
+          "user": "unnamed",
+          "content": "супервелик!!!!!!"
+        }
+      ],
+      "sales": 10,
+      "pictures": [
+        "/pictures/aist_cruiser/3873.745.jpg",
+        "/pictures/aist_cruiser/3874.745.jpg",
+        "/pictures/aist_cruiser/3875.745.jpg"
+      ]
     },
     {
       "id": 2,
       "producer": "Cronus",
-      "model": "6furyfgrufg",
+      "model": "Cruiser 2HRp",
       "quantity": 7,
       "price": 350,
       "yearProd": "2019",
       "speedQuantity": "24",
-      "ageGroup":"adolescent",
-      "bikeClass":"city"
-    },{
+      "ageGroup": "adolescent",
+      "bikeClass": "city",
+      "score": 4,
+      "comments": [
+        {
+          "date": "10.06.2019",
+          "time": "12:49",
+          "user": "unnamed",
+          "content": "Отличный велик, очень доволен покупкой"
+        },
+        {
+          "date": "15.06.2019",
+          "time": "12:30",
+          "user": "Sergey",
+          "content": "Спасибо за совет, от велосипеда в восторге!"
+        },
+        {
+          "date": "17.06.2019",
+          "time": "18:04",
+          "user": "unnamed",
+          "content": "Суперве!!!!!"
+        },
+        {
+          "date": "17.06.2019",
+          "time": "18:46",
+          "user": "unnamed",
+          "content": "отлично!"
+        },
+        {
+          "date": "17.06.2019",
+          "time": "20:00",
+          "user": "unnamed",
+          "content": "dfbdfbdfbdbdfb"
+        }
+      ],
+      "sales": 8,
+      "pictures": [
+        "/pictures/stream_tracer_1.0/stream_tracer_1.0_1.jpg",
+        "/pictures/stream_tracer_1.0/stream_tracer_1.0_2.jpg"
+      ]
+    },
+    {
       "id": 3,
       "producer": "Challenger",
-      "model": "6furyfgrufg",
-      "quantity": 7,
+      "model": "Cruiser 2HRp",
+      "quantity": 0,
       "price": 500,
       "yearProd": "2017",
       "speedQuantity": "32",
-      "ageGroup":"mature",
-      "bikeClass":"highway"
-    },{
+      "ageGroup": "mature",
+      "bikeClass": "highway",
+      "score": 3.5,
+      "comments": [],
+      "sales": 5,
+      "pictures": [
+        "/pictures/stream_tracer_1.0/stream_tracer_1.0_1.jpg",
+        "/pictures/stream_tracer_1.0/stream_tracer_1.0_2.jpg"
+      ]
+    },
+    {
       "id": 4,
       "producer": "Aspect",
-      "model": "6furyfgrufg",
+      "model": "Cruiser 2HRp",
       "quantity": 7,
       "price": 500,
       "yearProd": "2018",
       "speedQuantity": "24",
-      "ageGroup":"baby",
-      "bikeClass":"mountain"
-    },{
+      "ageGroup": "baby",
+      "bikeClass": "mountain",
+      "score": 4.2,
+      "comments": [],
+      "sales": 11,
+      "pictures": [
+        "/pictures/stream_tracer_1.0/stream_tracer_1.0_1.jpg",
+        "/pictures/stream_tracer_1.0/stream_tracer_1.0_2.jpg"
+      ]
+    },
+    {
       "id": 5,
       "producer": "Stream",
-      "model": "6furyfgrufg",
+      "model": "Cruiser 2HRp",
       "quantity": 7,
       "price": 1000,
       "yearProd": "2018",
       "speedQuantity": "32",
-      "ageGroup":"mature",
-      "bikeClass":"mountain"
-    },{
+      "ageGroup": "mature",
+      "bikeClass": "mountain",
+      "score": 3.8,
+      "comments": [],
+      "sales": 5,
+      "pictures": [
+        "/pictures/stream_tracer_1.0/stream_tracer_1.0_1.jpg",
+        "/pictures/stream_tracer_1.0/stream_tracer_1.0_2.jpg"
+      ]
+    },
+    {
       "id": 6,
       "producer": "Aist",
       "model": "6furyfgrufg",
@@ -59,11 +221,108 @@
       "price": 750,
       "yearProd": "2019",
       "speedQuantity": "16",
-      "ageGroup":"baby",
-      "bikeClass":"city"
+      "ageGroup": "baby",
+      "bikeClass": "city",
+      "score": 4.1,
+      "comments": [],
+      "sales": 5,
+      "pictures": [
+        "/pictures/stream_tracer_1.0/stream_tracer_1.0_1.jpg",
+        "/pictures/stream_tracer_1.0/stream_tracer_1.0_2.jpg"
+      ]
     }
   ],
-  "users":[
-    {"id":1, "name": "Eugene", "eMail":"shmyga-es@yandex.by","passWord": "123456","phone":"+375292837284","basket":[],"purchase":[]}
-   ]
+  "users": [
+    {
+      "id": 1,
+      "name": "Eugene",
+      "eMail": "shmyga-es@yandex.by",
+      "passWord": "123456",
+      "phone": "+375292837284",
+      "basket": [],
+      "purchase": [
+        {
+          "date": "17.06.2019",
+          "time": "22:49",
+          "order": [
+            {
+              "name": "Cronus",
+              "model": "Cruiser 2HRp",
+              "price": 350,
+              "quantity": 3
+            },
+            {
+              "name": "Aspect",
+              "model": "Cruiser 2HRp",
+              "price": 500,
+              "quantity": 3
+            }
+          ],
+          "totalSum": 2550
+        },
+        {
+          "date": "17.06.2019",
+          "time": "23:27",
+          "order": [
+            {
+              "name": "Cronus",
+              "model": "Cruiser 2HRp",
+              "price": 350,
+              "quantity": 5
+            }
+          ],
+          "totalSum": 1750
+        },
+        {
+          "date": "17.06.2019",
+          "time": "23:27",
+          "order": [
+            {
+              "name": "Cronus",
+              "model": "Cruiser 2HRp",
+              "price": 350,
+              "quantity": 7
+            }
+          ],
+          "totalSum": 2450
+        }
+      ]
+    },
+    {
+      "name": "sadasd",
+      "eMail": "asdad@dsd.sd",
+      "passWord": "asdas",
+      "phone": "+375292525255",
+      "basket": [],
+      "purchase": [],
+      "id": 2
+    },
+    {
+      "name": "ываываы",
+      "eMail": "greger@sdfs.sdfs",
+      "passWord": "12312",
+      "phone": "+375292525254",
+      "basket": [],
+      "purchase": [],
+      "id": 3
+    },
+    {
+      "name": "dfgdfg",
+      "eMail": "dfgdfg@sdfsdf.sdf",
+      "passWord": "sdfsd",
+      "phone": "+375258585858",
+      "basket": [],
+      "purchase": [],
+      "id": 4
+    },
+    {
+      "name": "ergerger",
+      "eMail": "efwf@dfef.efef",
+      "passWord": "12345",
+      "phone": "+375292837878",
+      "basket": [],
+      "purchase": [],
+      "id": 5
+    }
+  ]
 }

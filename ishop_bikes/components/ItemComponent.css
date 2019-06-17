@@ -1,0 +1,69 @@
+.ItemComponentMode1 {
+    display: flex;
+    width: 100%;
+}
+.ItemComponentMode1 .ImageContainer {
+    position: relative;
+    flex: 1 1;
+}
+.ItemComponentMode1 .OnImageBlock {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.ItemComponentMode1 img {
+    width: 100%;
+    height: 100%;
+}
+.ImageContainer {
+    width: 30%;
+    height:100%;
+}
+.ItemComponentMode1 .OnImageBlock>div {
+    height: 100%;
+    flex: 1 1;
+  
+}
+.ItemComponentMode1 .UnderImageBlocksContainer {
+    display: flex;
+    height: 5px;
+    width: 100%;
+}
+.ItemComponentMode1 .UnderImageBlockInit{
+    flex: 1 1;
+    background-color: gainsboro;
+    height: 100%;
+    margin: 2px;
+}
+.ItemComponentMode1 .UnderImageBlockHover{
+    flex: 1 1;
+    background-color: blue;
+    height: 100%;
+    margin: 2px;
+}
+.ItemComponentMode1 .ItemDescriptionContainer{
+    flex: 1 1;
+}
+.ItemComponentMode1 .ItemDescriptionContainer .ItemDescription {
+    display: flex;
+}
+.ItemComponentMode1 .ItemDescriptionContainer .ItemDescription span {
+    flex: 1 1;
+    border-bottom: 1px solid gainsboro;
+    font-size: 1.5em;
+}
+.ItemComponentMode1 .OrderContainer .ItemQuantYes {
+    color: green;
+}
+.ItemComponentMode1 .OrderContainer .ItemQuantNo {
+    color: red;
+}
+.ItemComponentMode1 .OrderContainer .BasketButtonYes {
+    background-color: green;
+    color: snow;
+}
+.ItemComponentMode1 .OrderContainer .BasketButtonNo {
+    background-color: gainsboro;
+    color: gray;
+}

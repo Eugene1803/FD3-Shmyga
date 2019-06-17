@@ -4,6 +4,8 @@ import isoFetch from 'isomorphic-fetch';
 import { Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { withRouter } from "react-router";
+import {comparePrice, compareSales, compareScore} from './../compareProp.js';
+import ItemComponent from "../components/ItemComponent";
 //import Logo from './pages/Logo.js';
 //import Basket from './pages/Basket.js';
 class Page_Bikes extends React.PureComponent {
@@ -45,8 +47,8 @@ class Page_Bikes extends React.PureComponent {
             ageGroup: {'baby': true, 'adolescent': true, 'mature': true}
         },
         bikesSort: {price: true, salesQuant: false, buyersScore: false},
-        quantShownOnPage: '2'
-        
+        quantShownOnPage: '2',
+        itemsSorted: 'price'
     }
     
     componentWillReceiveProps(nextProps){
@@ -147,7 +149,7 @@ class Page_Bikes extends React.PureComponent {
          this.setState({
              bikesFilter: {...this.state.bikesFilter,price: {min: minPrice, max: maxPrice} }
          })
-
+         
          
      }
 
@@ -191,6 +193,7 @@ class Page_Bikes extends React.PureComponent {
         this.setState({
             bikesFilter: {...this.state.bikesFilter, producer: bikesFilterProducer}
         })
+        
      }
 
      setFilterYearProd = (e) => {
@@ -233,6 +236,7 @@ class Page_Bikes extends React.PureComponent {
         this.setState({
             bikesFilter: {...this.state.bikesFilter, yearProd: bikesFilterYearProd}
         })
+        
      }
      setFilterSpeedQuantity = (e) => {
         let speedQuantityTrueStatus = 0;
@@ -274,6 +278,7 @@ class Page_Bikes extends React.PureComponent {
         this.setState({
             bikesFilter: {...this.state.bikesFilter, speedQuantity: bikesFilterSpeedQuantity}
         })
+       
      }
      setFilterAgeGroup = (e) => {
         let ageGroupTrueStatus = 0;
@@ -315,6 +320,7 @@ class Page_Bikes extends React.PureComponent {
         this.setState({
             bikesFilter: {...this.state.bikesFilter, ageGroup: bikesFilterAgeGroup}
         })
+        
      }
 
      setFilterBikeClass = (e) => {
@@ -357,20 +363,28 @@ class Page_Bikes extends React.PureComponent {
         this.setState({
             bikesFilter: {...this.state.bikesFilter, bikeClass: bikesFilterBikeClass}
         })
+        
      }
 
      setQuantOnPage = (e) => {
          this.setState({
              quantShownOnPage: e.target.value
          })
+        
      }
+
+     setSort = (e) => {
+         this.setState({
+             itemsSorted: e.target.value
+         })
+         
+     }
+
+
     render() {
        let pages = [];
        if(this.props.bikes.status === 3) {
-        for(let i = 1; i <= ((this.props.bikes.data.length-1) / parseFloat(this.state.quantShownOnPage)); i++){
-            let pageLink = <NavLink to={'/catalog_velosipedov/'+i} key={i}>{i}</NavLink>;
-            pages.push(pageLink); 
-        }
+        
        var bikesList =  this.props.bikes.data.filter((v) => (
         (v.price <= this.state.bikesFilter.price.max &&
         v.price >= this.state.bikesFilter.price.min) &&
@@ -381,7 +395,28 @@ class Page_Bikes extends React.PureComponent {
         (this.state.bikesFilter.speedQuantity[v.speedQuantity])
         )
        );
-       
+       for(let i = 1; i <= Math.ceil((bikesList.length) / parseFloat(this.state.quantShownOnPage)); i++){
+        let pageLink = <NavLink to={'/catalog_velosipedov/'+i} key={i}>{i}</NavLink>;
+        pages.push(pageLink); 
+         }
+
+        if(this.state.itemsSorted === 'price'){
+            bikesList.sort(comparePrice);
+        } 
+        else if(this.state.itemsSorted === 'score'){
+            bikesList.sort(compareScore);
+        }
+        else if(this.state.itemsSorted === 'sales'){
+            bikesList.sort(compareSales);
+        }
+        var bikesListOnCurPage = [];
+        let curPage = this.props.match.params.page;
+        
+        for (var i = (this.state.quantShownOnPage * (curPage-1)); i < this.state.quantShownOnPage * curPage; i++){
+            if(bikesList[i]){
+            bikesListOnCurPage.push(<ItemComponent key={bikesList[i].id} displayMode={1} item={bikesList[i]}/>)
+            } else continue;
+        }
        }
       console.log('Page_Bikes render');
       return (
@@ -394,6 +429,13 @@ class Page_Bikes extends React.PureComponent {
                     <option value='2'>2</option>
                     <option value='4'>4</option>
                     <option value='6'>6</option>
+                </select>
+            </div>
+            <div>Показывать товаров на странице
+                <select defaultValue={this.state.quantShownOnPage} onChange={this.setSort}>
+                    <option value='price'>По цене</option>
+                    <option value='sales'>По продажам</option>
+                    <option value='score'>По оценке</option>
                 </select>
             </div>
             <div>
@@ -431,7 +473,7 @@ class Page_Bikes extends React.PureComponent {
                 <div><input type='checkbox' onClick={this.setFilterSpeedQuantity} value='32'/>32</div>
             </div>
 
-            <div>{JSON.stringify(bikesList)}</div>
+            <div>{bikesListOnCurPage.length?bikesListOnCurPage:''}</div>
             <div>{pages}</div>
         </div>
         )
@@ -451,5 +493,5 @@ class Page_Bikes extends React.PureComponent {
   
   // присоединяем (connect) компонент к хранилищу Redux
   const PageBikes = connect(mapStateToProps)(Page_Bikes);
-  export default PageBikes;
+  export default withRouter(PageBikes);
       
