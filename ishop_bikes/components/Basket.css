@@ -103,3 +103,16 @@
  vertical-align: middle;
  text-align: right;
 }
+.BasketMakeOrderButton {
+    text-align: center;
+    padding: 5px;
+}
+.BasketMakeOrderButton button:hover {
+    background-color: snow;
+    box-shadow: 0 0 3px blue;
+    
+}
+.BasketMakeOrderButton button {
+    cursor: pointer;
+    font-size: 150%;
+}

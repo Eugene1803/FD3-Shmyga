@@ -48,7 +48,7 @@ class Page_Bikes extends React.PureComponent {
             ageGroup: {'baby': true, 'adolescent': true, 'mature': true}
         },
         bikesSort: {price: true, salesQuant: false, buyersScore: false},
-        quantShownOnPage: '6',
+        quantShownOnPage: '20',
         itemsSorted: 'price'
     }
     
@@ -397,7 +397,7 @@ class Page_Bikes extends React.PureComponent {
         )
        );
        for(let i = 1; i <= Math.ceil((bikesList.length) / parseFloat(this.state.quantShownOnPage)); i++){
-        let pageLink = <NavLink to={'/catalog_velosipedov/'+i} key={i}>{i}</NavLink>;
+        let pageLink = <NavLink className="PageLink" activeClassName="ActivePageLink" to={'/catalog_velosipedov/'+i} key={i}>{i}</NavLink>;
         pages.push(pageLink); 
          }
 
@@ -428,9 +428,9 @@ class Page_Bikes extends React.PureComponent {
             <div className="PageBikesFilterContainer">
             <div className="PageBikesFilter">Показывать товаров на странице
                 <select className="SelectPageBikes" defaultValue={this.state.quantShownOnPage} onChange={this.setQuantOnPage}>
-                    <option value='2'>2</option>
-                    <option value='4'>4</option>
-                    <option value='6'>6</option>
+                    <option value='20'>20</option>
+                    <option value='30'>30</option>
+                    <option value='50'>50</option>
                 </select>
             </div>
             <div className="PageBikesFilter">Показывать товаров на странице
@@ -479,7 +479,7 @@ class Page_Bikes extends React.PureComponent {
             </div>
             </div>
             <div>{bikesListOnCurPage.length?bikesListOnCurPage:''}
-            <div>{pages}</div>
+            <div className="PageBikesPages">{pages}</div>
             </div>
         </div>
         )

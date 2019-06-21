@@ -1,5 +1,5 @@
 const initState={
-    text: 'Добро пожловать!',
+    text: 'Добро пожaловать!',
     key: 0
   }
   

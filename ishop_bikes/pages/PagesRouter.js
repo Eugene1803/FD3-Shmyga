@@ -5,16 +5,10 @@ import { Route } from 'react-router-dom';
 import Page_Start from './Page_Start'
 import Page_Bikes from './Page_Bikes';
 import Page_Current_bike from './Page_Current_bike';
-/*
-import Page_Brands from './Page_Brands';
-import Page_Aksess from './Page_Aksess';
-import Page_Repair from './Page_Repair';
+import Page_Garanty from './Page_Garanty'
+import Page_Pay from './Page_Pay'
+import Page_Delivery from './Page_Delivery'
 
-        
-        <Route path="/velobrendy" component={Page_Brands} >ВЕЛОБРЕНДЫ</Route>
-        <Route path="/veloaksessuary" component={Page_Aksess} >ВЕЛОАКСЕССУАРЫ</Route>
-        <Route path="/velozapchasti" component={Page_Repair} >ВЕЛОЗАПЧАСТИ</Route>
-*/
 class PagesRouter extends React.Component {
           
   render() {
@@ -24,6 +18,9 @@ class PagesRouter extends React.Component {
         <Route path="/" exact component={Page_Start} />
         <Route path="/catalog_velosipedov/:page" component={Page_Bikes} />
         <Route path='/bikes/:id' component={Page_Current_bike}/>
+        <Route path="/dostavka" component={Page_Delivery}/>
+        <Route path="/oplata" component={Page_Pay}/>
+        <Route path="/garantiya" component={Page_Garanty}/>
       </div>
     );
     

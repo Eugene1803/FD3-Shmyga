@@ -1,0 +1,29 @@
+.Footer {
+    background-color:rgb(215, 220, 221);
+padding-top: 10px;
+padding-bottom: 10px;
+margin-top: 20px;
+}
+.FooterImagePay {
+    text-align: center;
+    
+}
+.FooterImagePay img {
+    width: 50%;
+}
+.FooterImageSoc {
+    text-align: center;
+}
+.FooterCompInfo {
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: 80%;
+    color: darkgray;
+}
+.FooterImageSoc {
+    text-align: center;
+}
+
+.FooterImageSoc img {
+    width: 40%;
+}

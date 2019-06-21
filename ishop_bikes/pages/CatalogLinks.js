@@ -29,7 +29,7 @@ class CatalogLinks extends React.Component {
         <NavLink to="/catalog_velosipedov/1" className="PageLink" activeClassName="ActivePageLink">КАТАЛОГ ВЕЛОСИПЕДОВ</NavLink></div>
         <div><NavLink to="/dostavka" className="PageLink" activeClassName="ActivePageLink">Доставка</NavLink></div>
         <div><NavLink to="/oplata" className="PageLink" activeClassName="ActivePageLink">ОПЛАТА</NavLink></div>
-        <div><NavLink to="/rassrochka" className="PageLink" activeClassName="ActivePageLink">РАССРОЧКА</NavLink></div>
+        
         <div><NavLink to="/garantiya" className="PageLink" activeClassName="ActivePageLink">ГАРАНТИЯ</NavLink></div>
       </div>
       <div className={(!this.state.showMobileMenu)?"MobileMenuButton":"MobileMenuButtonHide"}><img src="../pictures/menu.png" onClick={this.openMenu}/></div>
@@ -38,7 +38,7 @@ class CatalogLinks extends React.Component {
       <div><NavLink to="/catalog_velosipedov/1" className="PageLinkMobile" activeClassName="ActivePageLinkMobile">КАТАЛОГ ВЕЛОСИПЕДОВ</NavLink></div>
         <div><NavLink to="/dostavka" className="PageLinkMobile" activeClassName="ActivePageLinkMobile">Доставка</NavLink></div>
         <div><NavLink to="/oplata" className="PageLinkMobile" activeClassName="ActivePageLinkMobile">ОПЛАТА</NavLink></div>
-        <div><NavLink to="/rassrochka" className="PageLinkMobile" activeClassName="ActivePageLinkMobile">РАССРОЧКА</NavLink></div>
+        
         <div><NavLink to="/garantiya" className="PageLinkMobile" activeClassName="ActivePageLinkMobile">ГАРАНТИЯ</NavLink></div>
       </div> 
       </div>

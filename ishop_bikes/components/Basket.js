@@ -310,7 +310,7 @@ class Basket extends React.PureComponent{
                    <div key={key} className={(key == this.state.deletedItemId)?"BasketDeletedItem":"BasketItem"}>
                         <div className="ItemName">{basket[key].item.producer + ' ' + basket[key].item.model}</div>
                         <div className="ItemQuantity"><button data={key} onClick={this.decQuantity}>-</button>{basket[key].quantity}<button data={key} onClick={this.incQuant}>+</button></div>
-                        <div className="ItemSum">{basket[key].quantity*basket[key].item.price}</div>
+                        <div className="ItemSum">{basket[key].quantity*basket[key].item.price} Br</div>
                         <div className="ItemAction" onClick={this.deleteItemFromBasket} data={key}>Удалить</div>
                     </div>);
                 }
@@ -330,8 +330,8 @@ class Basket extends React.PureComponent{
                                         {popUpBasketInner}
                                      
                                  </div>    
-                            <div className="Total">Общая сумма: {totalSum}</div>
-                            <button onClick={this.makeOrder}>Заказать</button>
+                            <div className="Total">Общая сумма: {totalSum} Br</div>
+                            <div className="BasketMakeOrderButton"><button onClick={this.makeOrder}>Заказать</button></div>
                         </div>
                     </div>
                 return popUpBasket    

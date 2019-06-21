@@ -5,14 +5,15 @@ import UserRegistration from './Registration';
 import Basket from './Basket';
 import PopUpMessage from './PopUpMessage.js';
 import "./Header.css";
-//import Logo from './pages/Logo.js';
-//import Basket from './pages/Basket.js';
+import { NavLink } from 'react-router-dom';
+
 class Header extends React.Component {
           
     render() {
       console.log('Header render');
       return (
         <div className="Header">
+          <NavLink className="HeaderLogo" to=""><img src="../pictures/velikby.png"/></NavLink>
             <UserRegistration/>
             <Basket/>
             <PopUpMessage/>

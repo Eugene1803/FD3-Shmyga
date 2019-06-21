@@ -20,6 +20,23 @@
 .ShowFilterButton {
     display: none;
 }
+.PageBikesPages {
+    display: flex;
+    justify-content: center;
+} 
+
+.PageBikesPages .PageLink, .PageBikesPages .ActivePageLink {
+    display: block;
+    text-decoration: none;
+    font-size: 150%;
+    padding: 3px;
+    margin: 3px;
+}
+.PageBikesPages .ActivePageLink {
+    color: white;
+    background-color: blue;
+    box-shadow: 0 0 2px blue;
+}
 @media all and (max-width: 640px){
     .PageBikesContainer {
         flex-direction: column;

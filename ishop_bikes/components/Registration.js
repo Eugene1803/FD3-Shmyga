@@ -5,7 +5,7 @@ import isoFetch from 'isomorphic-fetch';
 class Registration extends React.PureComponent {
     componentDidMount(){
         let user = JSON.parse(localStorage.bikesLocalStorage).user;
-        if(user){
+        if(user && Object.keys(user).length){
             this.props.dispatch({
                 type: 'LOG_IN',
                 user: user,
