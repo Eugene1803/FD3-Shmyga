@@ -1,0 +1,634 @@
+.CatalogLinks {
+    display:flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.CatalogLinks >* {
+    text-align: center;
+    margin: 5px;
+}
+.CatalogLinks .PageLink{
+    background-color: lightblue;
+    padding: 5px;
+    border-radius: 3px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+.CatalogLinks .ActivePageLink {
+    background-color: white;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: 0 0 10px snow;
+    text-align: center;
+    text-decoration: none;
+    color: blue;
+}
+.MobileMenuButton, .MobileMenuButtonHide {
+    display: none;
+}
+.CatalogLinksMobile, .CatalogLinksMobileHide {
+    display: none;
+}
+@media all and (max-width: 640px) {
+    .CatalogLinks {
+        display:none;
+    }
+    .MobileMenuButton {
+        display: block;
+        position: fixed;
+        left: 10px;
+        top: 10px;
+        cursor: pointer;
+    }
+    .MobileMenuButton img {
+        width: 50px;
+    }
+    
+    .CatalogLinksMobile, .CatalogLinksMobileHide {
+        width: 50%;
+        position:fixed;
+        transition: 1s;
+        height: 100%;
+        background-color:rgb(215, 220, 221);
+        box-shadow: 0 0 5px black;
+        z-index: 50;
+        top: 0;
+        display: block;
+    }
+    .CatalogLinksMobile {
+        left: 0;
+        
+    }
+    .CatalogLinksMobileHide {
+        left: -70%;
+    }
+    .ActivePageLinkMobile {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    .PageLinkMobile{
+        background-color: lightblue;
+        padding: 5px;
+        border-radius: 3px;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        display: block;
+    }
+    .CatalogLinksMobile img, .CatalogLinksMobileHide img{
+        cursor: pointer;
+        width: 30px;
+    }
+}.ItemComponentMode1 {
+    display: flex;
+    width: 100%;
+    margin-top: 5px;
+    box-shadow: 0 0 5px gray inset;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.ItemComponentMode1>div {
+    padding: 5px;
+    
+}
+.ItemComponentMode1 .ImageContainer {
+    position: relative;
+    flex: 1 1 100px;
+    padding: 5px;
+}
+.ItemComponentMode1 .OnImageBlock {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.ItemComponentMode1 img {
+    width: 100%;
+    height: 100%;
+}
+.ImageContainer {
+    width: 30%;
+    height:100%;
+}
+.ItemComponentMode1 .OnImageBlock>div {
+    height: 100%;
+    flex: 1 1;
+  
+}
+.ItemComponentMode1 .UnderImageBlocksContainer {
+    display: flex;
+    height: 5px;
+    width: 100%;
+}
+.ItemComponentMode1 .UnderImageBlockInit{
+    flex: 1 1;
+    background-color: gainsboro;
+    height: 100%;
+    margin: 2px;
+}
+.ItemComponentMode1 .UnderImageBlockHover{
+    flex: 1 1;
+    background-color: blue;
+    height: 100%;
+    margin: 2px;
+}
+.ItemComponentMode1 .ItemDescriptionContainer{
+    flex: 2 1;
+}
+.ItemComponentMode1 .ItemDescriptionContainer .ItemDescription {
+    display: flex;
+}
+.ItemComponentMode1 .ItemDescriptionContainer .ItemDescription span {
+    flex: 1 1;
+    border-bottom: 1px solid gainsboro;
+}
+.ItemComponentMode1 .OrderContainer {
+    flex: 1 1;
+}
+.ItemComponentMode1 .OrderContainer .ItemQuantYes {
+    color:  rgb(27, 216, 23);
+}
+.ItemComponentMode1 .OrderContainer .ItemQuantNo {
+    color: rgb(232, 23, 58);
+}
+.ItemComponentMode1 .OrderContainer .BasketButtonYes {
+    background-color: rgb(27, 216, 23);
+    color: snow;
+    border-radius: 5px;
+    border-width: 0;
+    box-shadow:0 0 5px rgb(27, 216, 23);
+    cursor: pointer;
+    padding: 5px;
+    font-size: 110%;
+
+    color: snow;
+}
+.ItemComponentMode1 .OrderContainer .BasketButtonNo {
+    background-color: gainsboro;
+    color: gray;
+}
+@media all and (max-width: 800px){
+    .ItemComponentMode1 {
+        flex-direction: column;
+    }
+    .ItemComponentMode1 .ImageContainer {
+        position: relative;
+        flex: 1 1 100px;
+        padding: 5px;
+        order: 2;
+        width: 80%;
+        margin:auto;
+    }
+    .ItemComponentMode1 .OrderContainer {
+        flex: 1 1;
+        order: 3;
+    }
+    .ItemComponentMode1 .ItemDescriptionContainer{
+        flex: 2 1;
+        order: 1;
+    }
+}
+.ItemComponentContainerMode2 h2 {
+    text-align: center;
+}
+.ItemComponentContainerMode2 .ItemDescription {
+    display: flex;
+}
+.ItemComponentContainerMode2 .ItemDescription>*{
+    flex: 1 1;
+    padding-left: 20px;
+    padding: 5px;
+    border-bottom: 2px solid lightgray;
+}
+.ItemComponentContainerMode2 .ItemDescription .Main {
+    font-size: 120%;
+    font-weight: 600;
+}
+.ItemComponentContainerMode2 .Price {
+    text-align: center;
+    font-size: 200%;
+    padding: 20px;
+}
+.ItemComponentContainerMode2 .CartImage {
+    width: 50px;
+}
+
+.ItemComponentContainerMode2 .BasketButtonYes {
+    background-color: rgb(27, 216, 23);
+    color: snow;
+    border-radius: 5px;
+    border-width: 0;
+    box-shadow:0 0 5px rgb(27, 216, 23);
+    cursor: pointer;
+    padding: 20px;
+    font-size: 200%;
+
+}
+.ItemComponentContainerMode2 .ToBasket {
+    padding: 10px;
+    text-align: center;
+}
+.ItemComponentContainerMode2 .BasketButtonNo {
+    background-color: snow;
+    color: lightgrey;
+    border-radius: 5px;
+    border: 2px solid gray;
+    cursor: pointer;
+    padding: 20px;
+    font-size: 150%;
+
+}
+.ItemComponentContainerMode2 .ScoreContainer {
+    width: 50%;
+    margin:auto;
+    padding: 20px;
+}
+.ItemPhotoContainer {
+    width: 100%;
+}
+.ItemPhotoContainer .MainPhoto img{
+    width: 80%;
+}
+.ItemPhotoContainer .MainPhoto{
+    text-align: center;
+}
+.ItemPhotoContainer .Chosen {
+    border: 2px solid blue;
+}
+.ItemPhotoContainer .PicturesContainer {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 5px;
+    box-shadow: 0 0 5px gray;
+}
+.ItemPhotoContainer .ImageExample {
+    width: 15%;
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+}
+.ItemPhotoContainer .ImageExample img {
+    display:block;
+    width: 100%;
+}.ScoreComponent img{
+    width: 20%;
+}
+.ScoreComponent button {
+    display: block;
+    margin: auto;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.ScoreComponent button:hover {
+    box-shadow: 0 0 5px blue;
+}.CommentContainer {
+    padding: 10px;
+    margin:auto;
+    border-radius: 10px;
+    box-shadow: 0 0 5px gray;
+    margin-top: 10px;
+}
+
+.CommentsComponentContainer h3 {
+    text-align: center;
+}
+.CommentsComponentContainer .CommentsList {
+    margin:auto;
+    
+    width: 90%;
+    padding: 10px;
+    box-shadow: 0 0 10px gray;
+}
+.CommentsComponentContainer .CommentInput {
+    width: 90%;
+    margin: auto;
+}
+.CommentsComponentContainer .CommentInput textarea {
+    font-family: sans-serif;
+    min-height: 100px;
+    width: 100%;
+    margin: 10px;
+}
+.CommentsComponentContainer .CommentInput button {
+    display: block;
+    margin: auto;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.CommentsComponentContainer .CommentInput button:hover {
+    box-shadow: 0 0 5px blue;
+}.PageBikesContainer {
+    display: flex;
+}
+.PageBikesContainer .PageBikesFilterContainer {
+    padding: 5px;
+    box-shadow: 0 0 5px gray;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.PageBikesContainer .PageBikesFilter {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.PageBikesContainer .SelectPageBikes {
+    width: auto;
+}
+.PageBikesContainer .PriceInput{
+    width: 4em;
+}
+.ShowFilterButton {
+    display: none;
+}
+@media all and (max-width: 640px){
+    .PageBikesContainer {
+        flex-direction: column;
+    }
+    .ShowFilterButton {
+        display: block;
+    }
+    .HideFilterButton {
+        display: none;
+    }
+}div.LogInRegFormContainer {
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 20;
+} 
+div.LogInRegForm {
+    background-color: snow;
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: 5%;
+    min-height: 50%;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 5px snow;
+}
+div.LogInRegFormLoading{
+    color: snow;
+    font-size: 2em;
+    position: absolute;
+    left: 40%;
+    top: 40%;
+}
+.LogInRegFormContainer .ButtonValid {
+    background-color: rgb(27, 216, 23);
+    color: snow;
+    border-radius: 5px;
+    border-width: 0;
+    box-shadow:0 0 5px rgb(27, 216, 23);
+    cursor: pointer;
+    padding: 5px;
+    font-size: 110%;
+    margin: 10px;
+    margin: auto;
+    display: block;
+}
+.LogInRegFormContainer span.Valid {
+    color: rgb(27, 216, 23);
+}
+.LogInRegFormContainer span.NotValid {
+    color: rgb(232, 23, 58);
+}
+.LogInRegFormInputContainer {
+    margin: auto;
+    text-align: center;
+
+}
+.RegistrationMainPage {
+    display:flex;
+    justify-content: flex-end;
+    padding: 5px;
+}
+.RegistrationMainPage button {
+    background-color: lightblue;
+    padding: 5px;
+    border-radius: 3px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+.RegistrationMainPage button:hover{
+    background-color: white;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: 0 0 10px snow;
+    text-align: center;
+    text-decoration: none;
+    color: blue;
+}
+
+.LogInRegFormInputContainer input{
+    padding: 5px;
+    border-radius: 5px;
+}
+.LogInRegFormContainer .ButtonNotValid{
+    background-color: snow;
+    border: 1px solid lightgray;
+    color: lightgray;
+    margin: auto;
+    display: block;
+} 
+.LogInRegFormContainer .CancelButton img {
+    width: 30px;
+    position:absolute;
+    right: -15px;
+    top: -15px;
+    cursor:pointer;
+} 
+.LogInRegFormContainer .Link {
+    color: blue;
+    cursor: pointer;
+}
+.LogInRegFormContainer .Link:hover {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}    
+.LogInRegFormContainer .Cabinet {
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    top: 5%;
+    background-color: snow;
+    min-height: 70%;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 5px snow;
+}
+.CabinetOrderCotainer{
+    display: flex;
+}
+.Cabinet h2 {
+    text-align: center;
+}
+.Cabinet li {
+    list-style-type: none;
+}
+.CabinetOrderCotainer {
+    margin: 5px;
+    padding: 5px;
+    box-shadow: 0 0 3px gray inset;
+}
+.CabinetOrderCotainer .Date{
+    flex: 1 1;
+}
+.CabinetOrderCotainer .Time{
+    flex: 1 1
+}
+.CabinetOrderCotainer .Items{
+    flex: 2 1;
+}
+.CabinetOrderCotainer .Total{
+    flex: 1 1;
+}
+.Cabinet .CancelButton img {
+    width: 30px;
+    position:absolute;
+    right: -15px;
+    top: -15px;
+    cursor:pointer;
+} .BasketPopUpContainer {
+    min-width: 100%;
+    min-height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    top: 0;
+}
+.BasketPopUpContainer .CancelButton img {
+    width: 30px;
+    position:absolute;
+    right: -15px;
+    top: -15px;
+    cursor:pointer;
+} 
+.BasketPopUpContainer .Basket {
+    background-color: snow;
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    top: 5%;
+    border-radius: 10px;
+    box-shadow: 0 0 5px white;
+    transition: 0.5s;
+}
+
+.BasketPopUpContainer .Basket h1 {
+    text-align: center;
+}
+.BasketPopUpContainer .BasketTableHead,  .BasketPopUpContainer .BasketDeletedItem, .BasketPopUpContainer .BasketItem{
+    display:flex;  
+    overflow: hidden;  
+}
+.BasketPopUpContainer .BasketTableHead {
+    padding: 5px;
+    font-size: 120%;
+}
+.BasketPopUpContainer .BasketItem, .BasketPopUpContainer .BasketDeletedItem {
+    transition-duration: 0.8s;
+    overflow: hidden;
+    
+    box-shadow: 0 0 3px gray inset;
+}
+
+.BasketPopUpContainer .BasketItem {
+    height: 50px;
+    position:relative;
+    padding: 5px;
+}
+.BasketPopUpContainer .BasketDeletedItem{
+    height: 0px;
+    background-color: rgb(242, 4, 60,0.6);
+    padding: 0px;
+}
+.BasketPopUpContainer .ItemName {
+    flex: 2 1;
+    text-align: center;
+} 
+.BasketPopUpContainer .ItemQuantity{
+    flex: 1 2 ;
+    text-align: center;
+} 
+.BasketPopUpContainer .ItemSum{
+    flex: 1 2 ;
+    text-align: center;
+}
+.BasketPopUpContainer .ItemAction{
+    flex: 1 2;
+    text-align: center;
+}
+.BasketPopUpContainer .BasketItem .ItemAction:hover {
+    cursor: pointer;
+    color:red;
+    text-decoration: underline;
+}
+.BasketPopUpContainer .Total {
+    text-align: center;
+    font-size: 150%;
+}
+.BasketMainPageContainer .CartContainer {
+    
+    display: flex;
+    width: 5em;
+}
+.BasketMainPageContainer .CartImageContainer img {
+    height: 3em;
+}
+.BasketMainPageContainer button {
+    background-color: rgb(27, 216, 23);
+    border-radius: 5px;
+    color: white;
+    border: 0px solid transparent;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.BasketMainPageContainer button:hover {
+    box-shadow: 0 0 5px blue;
+    background-color: white;
+    color:blue;
+}
+.BasketMainPageContainer {
+ vertical-align: middle;
+ text-align: right;
+}.PopUpMessage {
+    position: fixed;
+    animation: PopUpMessageDissapear 5s ;
+    background-color: snow;
+    padding: 20px;
+    box-shadow: 0 0 10px gray;
+    top: -100%;
+    border-radius: 10px;
+    z-index: 100;
+    left: 20px;
+}
+@keyframes PopUpMessageDissapear 
+{
+    from {top: -100%}
+    10%{top:1%}
+    80% {top:1%}
+    to {top: -100%}
+}.Header {
+background-color:rgb(215, 220, 221);
+padding-top: 10px;
+padding-bottom: 10px;
+}body {
+    margin: 0;
+    font-family: sans-serif;
+}
+*{
+ box-sizing: border-box;   
+}
+
+/*# sourceMappingURL=main.bundle.267695ae29664266d4cf.css.map*/

@@ -198,7 +198,7 @@
       "id": 3,
       "producer": "Challenger",
       "model": "Cruiser 2HRp",
-      "quantity": 8,
+      "quantity": 1,
       "price": 500,
       "yearProd": "2017",
       "speedQuantity": "32",
@@ -206,9 +206,22 @@
       "bikeClass": "highway",
       "bikeClassRus": "шоссейный",
       "ageGroupRus": "взрослый",
-      "score": 1.4000000000000001,
-      "votesQuant": 50,
-      "comments": [],
+      "score": 1.5,
+      "votesQuant": 51,
+      "comments": [
+        {
+          "date": "21.06.2019",
+          "time": "21:30",
+          "user": "Eugene",
+          "content": "вапвдаопдваопдвлаопдваопдвалопдвалопдвлаопдлваопдлавопвдлаповдаопдвоапдвалоп"
+        },
+        {
+          "date": "21.06.2019",
+          "time": "21:30",
+          "user": "Eugene",
+          "content": "вапщлвпщлжващлпжвалпжщвалижьжвиьжщпижщажщивжаижвои"
+        }
+      ],
       "sales": 5,
       "pictures": [
         "/pictures/stream_tracer_1.0/stream_tracer_1.0_1.jpg",
@@ -332,6 +345,19 @@
             }
           ],
           "totalSum": 2450
+        },
+        {
+          "date": "21.06.2019",
+          "time": "21:33",
+          "order": [
+            {
+              "name": "Challenger",
+              "model": "Cruiser 2HRp",
+              "price": 500,
+              "quantity": 7
+            }
+          ],
+          "totalSum": 3500
         }
       ]
     },
