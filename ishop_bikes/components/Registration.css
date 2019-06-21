@@ -8,20 +8,87 @@ div.LogInRegFormContainer {
 div.LogInRegForm {
     background-color: snow;
     position: absolute;
-    width: 80%;
-    margin-top: 10%;
-    margin-left: auto;
-    margin-right: auto;
+    left: 10%;
+    right: 10%;
+    top: 5%;
+    min-height: 50%;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 5px snow;
 }
 div.LogInRegFormLoading{
     color: snow;
-    font-size: 2em
+    font-size: 2em;
+    position: absolute;
+    left: 40%;
+    top: 40%;
 }
 .LogInRegFormContainer .ButtonValid {
-    background-color: green;
+    background-color: rgb(27, 216, 23);
     color: snow;
+    border-radius: 5px;
+    border-width: 0;
+    box-shadow:0 0 5px rgb(27, 216, 23);
+    cursor: pointer;
+    padding: 5px;
+    font-size: 110%;
+    margin: 10px;
+    margin: auto;
+    display: block;
+}
+.LogInRegFormContainer span.Valid {
+    color: rgb(27, 216, 23);
+}
+.LogInRegFormContainer span.NotValid {
+    color: rgb(232, 23, 58);
+}
+.LogInRegFormInputContainer {
+    margin: auto;
+    text-align: center;
+
+}
+.RegistrationMainPage {
+    display:flex;
+    justify-content: flex-end;
+    padding: 5px;
+}
+.RegistrationMainPage button {
+    background-color: lightblue;
+    padding: 5px;
+    border-radius: 3px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+.RegistrationMainPage button:hover{
+    background-color: white;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: 0 0 10px snow;
+    text-align: center;
+    text-decoration: none;
+    color: blue;
 }
 
+.LogInRegFormInputContainer input{
+    padding: 5px;
+    border-radius: 5px;
+}
+.LogInRegFormContainer .ButtonNotValid{
+    background-color: snow;
+    border: 1px solid lightgray;
+    color: lightgray;
+    margin: auto;
+    display: block;
+} 
+.LogInRegFormContainer .CancelButton img {
+    width: 30px;
+    position:absolute;
+    right: -15px;
+    top: -15px;
+    cursor:pointer;
+} 
 .LogInRegFormContainer .Link {
     color: blue;
     cursor: pointer;
@@ -36,22 +103,42 @@ div.LogInRegFormLoading{
     left: 5%;
     right: 5%;
     top: 5%;
-    min-height: 50%;
-    box-shadow: 5px 5px snow;
     background-color: snow;
+    min-height: 70%;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 5px snow;
 }
 .CabinetOrderCotainer{
     display: flex;
 }
+.Cabinet h2 {
+    text-align: center;
+}
+.Cabinet li {
+    list-style-type: none;
+}
+.CabinetOrderCotainer {
+    margin: 5px;
+    padding: 5px;
+    box-shadow: 0 0 3px gray inset;
+}
 .CabinetOrderCotainer .Date{
-    flex-grow: 1
+    flex: 1 1;
 }
 .CabinetOrderCotainer .Time{
-    flex-grow: 1
+    flex: 1 1
 }
 .CabinetOrderCotainer .Items{
-    flex-grow: 4
+    flex: 2 1;
 }
 .CabinetOrderCotainer .Total{
-    flex-grow: 1
+    flex: 1 1;
 }
+.Cabinet .CancelButton img {
+    width: 30px;
+    position:absolute;
+    right: -15px;
+    top: -15px;
+    cursor:pointer;
+} 

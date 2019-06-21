@@ -16,12 +16,16 @@ class Basket extends React.PureComponent{
           })
     }
     state = {
+        deletedItemId: null
     }
     componentWillReceiveProps(nextProps){
             let basket = {...nextProps.userData.basket};
             let storage = {...JSON.parse(localStorage.bikesLocalStorage)};
             storage.basket = basket;
             localStorage.bikesLocalStorage = JSON.stringify(storage);
+            this.setState({
+                deletedItemId: null
+            })
     }
     fetchError = (errorMessage) => {
         console.error(errorMessage);
@@ -105,15 +109,68 @@ class Basket extends React.PureComponent{
             }) 
         }
     }
-
+    closeBasket = () => {
+        this.props.dispatch({
+            type: 'POP_UP',
+            popUpState: {registration: false, logIn: false, basket: false}
+        }) 
+    }
     deleteItemFromBasket = (e) => {
         let itemId = ""+ e.target.getAttribute('data');
         let newBasket  = {...this.props.userData.basket};
         delete newBasket[itemId];
-        this.props.dispatch({
-            type:'CHANGE_BASKET',
-            basket: newBasket
+        function dispatch(){
+            console.log('dispatch');
+            this.props.dispatch({
+                type:'CHANGE_BASKET',
+                basket: newBasket
+            })
+        }
+        setTimeout(dispatch.bind(this),900);
+        this.setState({
+            deletedItemId: itemId
         })
+    }
+    fetchSuccessSendBikes = (updatedItem) => {
+        let updatedBikes = this.props.items.map(v => {
+            if(v.id == updatedItem.id){
+                return updatedItem;
+            }
+            else {
+                return v;
+            }
+        })
+        this.props.dispatch({
+            type: 'BIKES_SET',
+            status:3,
+            data: updatedBikes
+        })
+      };
+    sendBikes = (updatedItem, itemId) => {
+        isoFetch(("http://localhost:3000/bikes/"+itemId), {
+        method: 'PATCH',
+        headers: {
+          "Content-type": "application/json",
+      },
+        body: JSON.stringify(updatedItem)
+    })
+
+        .then( response => { // response - HTTP-ответ
+            if (!response.ok){
+                throw new Error("fetch error " + response.status); // дальше по цепочке пойдёт отвергнутый промис
+            }
+                else{
+                return response.json(); // дальше по цепочке пойдёт промис с пришедшими по сети данными
+                }
+              })
+        .then( data => {
+            console.log('Велик обновился')
+            this.fetchSuccessSendBikes(data); // передаём полезные данные в fetchSuccess, дальше по цепочке пойдёт успешный пустой промис
+        })
+        .catch( error => {
+            this.fetchError(error.message);
+        })
+    ;
     }
     makeOrder = () => {
         if(this.props.userData.user){
@@ -141,6 +198,13 @@ class Basket extends React.PureComponent{
             let updatedUser = {...this.props.userData.user,purchase: userPurchase};
             this.sendData(updatedUser, updatedUser.id);
         }
+        this.props.items.forEach((v,i) => {
+            let itemId = ""+v.id;
+            if(itemId in this.props.userData.basket){
+                let updatedItem = {...this.props.items[i],quantity:(this.props.items[i].quantity-this.props.userData.basket[itemId].quantity) };
+                this.sendBikes(updatedItem, itemId); 
+            }
+        }) 
         this.props.dispatch({
             type:'ORDER_MADE'
         })
@@ -176,6 +240,39 @@ class Basket extends React.PureComponent{
         })
     ;
     }
+    incQuant = (e) =>{
+        let itemId = ""+ e.target.getAttribute('data');
+        console.log('increase');
+        if(this.props.userData.basket[itemId].quantity == this.props.userData.basket[itemId].item.quantity){
+                console.log('alert')
+            return this.props.dispatch({
+                type: 'ALERT',
+                text: 'В вашей корзине находится все доступное количество товара'
+            })
+        }
+        else {
+            this.props.dispatch({
+                type: 'ADD_TO_BASKET',
+                item: this.props.userData.basket[itemId].item
+            })
+        }
+    }
+
+    decQuantity = (e) => {
+        let itemId = ""+ e.target.getAttribute('data');
+        if(this.props.userData.basket[itemId].quantity ==1) {
+            return;
+        }
+        else {
+            let newBasket = {...this.props.userData.basket};
+            newBasket[itemId] = {...this.props.userData.basket[itemId], quantity: (this.props.userData.basket[itemId].quantity-1) }
+        
+            this.props.dispatch({
+                type:"CHANGE_BASKET",
+                basket: newBasket
+            })
+        }
+    }
     render(){
         console.log('basket render');
         
@@ -183,52 +280,57 @@ class Basket extends React.PureComponent{
         let totalSum = 0;
         let totalQuantity = 0;
         let basket = this.props.userData.basket;
+        console.log(basket);
             for(var key in basket){
                 count++;
                 totalSum += basket[key].quantity*basket[key].item.price;
                 totalQuantity += basket[key].quantity;
             }
         if(this.props.userData.popUpState.basket === false){
-            return <div onClick={this.openBasket}>Корзина ({totalQuantity}) на сумму {totalSum} Br</div>
+            return <div className="BasketMainPageContainer">
+                     <button className="CartImageContainer" onClick={this.openBasket} ><img src="../pictures/cart.png"/> ({totalQuantity}) {totalSum} Br</button>
+                   </div>
         }
         else {
             
             if(!count){
                 return <div className='BasketPopUpContainer' data='BasketPopUpContainer'  onClick={this.closeAllForms}>
-                    <h1>Корзина</h1>
-                    <div>Ваша корзина пуста</div>
+                   <div className="Basket">
+                   <div className="CancelButton"><img src="../pictures/cancel.png"onClick={this.closeBasket}/></div>
+                     <h1>Корзина</h1>
+                     <div style={{textAlign:"center"}}>Ваша корзина пуста</div>
+                    </div>
                 </div>
             }
             else{
                 let popUpBasketInner = [];
                 for (var key in basket){
-                    popUpBasketInner.push(<tr key={key}>
-                        <td>{basket[key].item.producer + ' ' + basket[key].item.model}</td>
-                        <td>{basket[key].quantity}</td>
-                        <td>{basket[key].quantity*basket[key].item.price}</td>
-                        <td onClick={this.deleteItemFromBasket} data={key}>Удалить</td>
-                    </tr>);
+                    
+                   popUpBasketInner.push(
+                   <div key={key} className={(key == this.state.deletedItemId)?"BasketDeletedItem":"BasketItem"}>
+                        <div className="ItemName">{basket[key].item.producer + ' ' + basket[key].item.model}</div>
+                        <div className="ItemQuantity"><button data={key} onClick={this.decQuantity}>-</button>{basket[key].quantity}<button data={key} onClick={this.incQuant}>+</button></div>
+                        <div className="ItemSum">{basket[key].quantity*basket[key].item.price}</div>
+                        <div className="ItemAction" onClick={this.deleteItemFromBasket} data={key}>Удалить</div>
+                    </div>);
                 }
                 let popUpBasket = 
                     
                     <div className='BasketPopUpContainer' data='BasketPopUpContainer'  onClick={this.closeAllForms}>
                         <div className="Basket">
                             <h1>Корзина</h1>
-                            <table>
-                                <thead>
-                                 <tr>   
-                                 <th>Название товара</th>
-                                 <th>Количество</th>
-                                 <th>Сумма</th>
-                                 <th>Действие</th>
-                                 </tr>
-                                </thead>
-                                <tbody>
-                                    {popUpBasketInner}
-                                </tbody>
-
-                            </table>
-                            <div>Общая сумма {totalSum}</div>
+                            <div className="CancelButton"><img src="../pictures/cancel.png"onClick={this.closeBasket}/></div>
+                                 <div className='BasketTableHead'>   
+                                    <div className="ItemName">Название товара</div>
+                                    <div className="ItemQuantity">Количество</div>
+                                    <div className="ItemSum">Сумма</div>
+                                    <div className="ItemAction">Действие</div>
+                                    </div>
+                                    <div>
+                                        {popUpBasketInner}
+                                     
+                                 </div>    
+                            <div className="Total">Общая сумма: {totalSum}</div>
                             <button onClick={this.makeOrder}>Заказать</button>
                         </div>
                     </div>

@@ -322,10 +322,10 @@ class Registration extends React.PureComponent {
       let mainPageRegButtons = '';
       let popUpForm = '';
         if(this.props.userData.user === null){
-        mainPageRegButtons = <div><span onClick={this.openLogInForm}>Вход</span><span onClick={this.openRegistrationForm}>Регистрация</span></div>    
+        mainPageRegButtons = <div className="RegistrationMainPage"><button onClick={this.openLogInForm}>Вход</button><button onClick={this.openRegistrationForm}>Регистрация</button></div>    
         }
         else {
-            mainPageRegButtons = <div>Пользователь: {this.props.userData.user.name} <button onClick={this.openCabinet}>Личный кабинет</button><button onClick={this.logOut}>Выйти</button></div> 
+            mainPageRegButtons = <div className="RegistrationMainPage">Пользователь: {this.props.userData.user.name} <button onClick={this.openCabinet}>Личный кабинет</button><button onClick={this.logOut}>Выйти</button></div> 
         }
       if(this.props.userData.popUpState.logIn === true){
           popUpForm = 
@@ -333,16 +333,18 @@ class Registration extends React.PureComponent {
               <div className='LogInRegFormContainer' data='LogInRegFormContainer'  onClick={this.closeAllForms}>
               {(this.props.userData.allUsers === null && <div className='LogInRegFormLoading'>Идет загрузка</div>)||
                 <div className='LogInRegForm'>
-                <div><button onClick={this.closeLogInForm}>Закрыть</button></div>
-                <div>Авторизуйтесь, указав свои контактные данные.</div>
-                <div><div>E-MAIL</div><input type='email' placeholder="myemail@mail.com" value={this.state.logInEMailField.inner} onChange={this.validateLogInEMail}></input><span>{this.state.logInEMailField.validString}</span></div>
-                <div><div>Пароль</div><input type='password' placeholder="password" value={this.state.logInPasswordField.inner} onChange={this.checkPassword}></input><span>{this.state.logInPasswordField.validString}</span></div>
+                <div className="CancelButton"><img src="../pictures/cancel.png"onClick={this.closeLogInForm}/></div>
+                <div className="LogInRegFormInputContainer">Авторизуйтесь, указав свои контактные данные.</div>
+                <div className="LogInRegFormInputContainer"><div>E-MAIL</div><input type='email' placeholder="myemail@mail.com" value={this.state.logInEMailField.inner} onChange={this.validateLogInEMail}></input></div>
+                <div className="LogInRegFormInputContainer"><span className={this.state.logInEMailField.valid?"Valid":"NotValid"}>{this.state.logInEMailField.validString}</span></div>
+                <div className="LogInRegFormInputContainer"><div>Пароль</div><input type='password' placeholder="password" value={this.state.logInPasswordField.inner} onChange={this.checkPassword}></input></div>
+                <div className="LogInRegFormInputContainer"><span className={this.state.logInPasswordField.valid?"Valid":"NotValid"}>{this.state.logInPasswordField.validString}</span></div>
                 <div>
                 {((this.state.logInEMailField.valid && this.state.logInPasswordField.valid) &&
               <button onClick={this.logInUser} className='ButtonValid'>Войти</button> ) || 
               (<button className="ButtonNotValid">Войти</button>)}
                 </div>
-                <div>Впервые у нас? <span onClick={this.openRegistrationForm} className="Link">Зарегистрироваться</span></div>
+                <div className="LogInRegFormInputContainer">Впервые у нас? <span onClick={this.openRegistrationForm} className="Link">Зарегистрироваться</span></div>
                 </div>
               } 
               </div>
@@ -353,19 +355,24 @@ class Registration extends React.PureComponent {
         <div className='LogInRegFormContainer' data='LogInRegFormContainer'  onClick={this.closeAllForms}>
         {(this.props.userData.allUsers === null && <div className='LogInRegFormLoading'>Идет загрузка</div>)||
           <div className='LogInRegForm'>
-          <div><button onClick={this.closeRegistrationForm}>Закрыть</button></div>
-          <div>Зарегестрируйтесь, указав свои контактные данные.</div>
-          <div><div>Имя</div><input type='text' value={this.state.regFormNameField.inner} placeholder='Введите имя' onChange={this.validateRegFormName}></input><span>{this.state.regFormNameField.validString}</span></div>
-          <div><div>E-MAIL</div><input type='email' value={this.state.regFormEMailField.inner} placeholder='myemail@mail.com' onChange={this.validateRegFormEMail}></input><span>{this.state.regFormEMailField.validString}</span></div>
-          <div><div>Телефон</div><input type='text' placeholder='+375XXXXXXXXX' value={this.state.regFormNumberField.inner} onChange={this.validateRegFormNumber}></input><span>{this.state.regFormNumberField.validString}</span></div>
-          <div><div>Придумайте пароль</div><input type='password' value={this.state.regFormPasswordField.inner} onChange={this.regFormSetPassword}></input><span>{this.state.regFormPasswordField.validString}</span></div>
-          <div><div>Подтвердите пароль</div><input type='password' value={this.state.regFormPasswordConfField.inner} onChange={this.regFormConfPassword}></input><span>{this.state.regFormPasswordConfField.validString}</span></div>
+        <div className="CancelButton"><img src="../pictures/cancel.png"onClick={this.closeLogInForm}/></div>
+          <div className="LogInRegFormInputContainer">Зарегестрируйтесь, указав свои контактные данные.</div>
+          <div className="LogInRegFormInputContainer"><div>Имя</div><input type='text' value={this.state.regFormNameField.inner} placeholder='Введите имя' onChange={this.validateRegFormName}></input></div>
+          <div className="LogInRegFormInputContainer" ><span className={this.state.regFormNameField.valid?"Valid":"NotValid"}>{this.state.regFormNameField.validString}</span></div>
+          <div className="LogInRegFormInputContainer"><div>E-MAIL</div><input type='email' value={this.state.regFormEMailField.inner} placeholder='myemail@mail.com' onChange={this.validateRegFormEMail}></input></div>
+          <div className="LogInRegFormInputContainer"><span className={this.state.regFormEMailField.valid?"Valid":"NotValid"}>{this.state.regFormEMailField.validString}</span></div>
+          <div className="LogInRegFormInputContainer"><div>Телефон</div><input type='text' placeholder='+375XXXXXXXXX' value={this.state.regFormNumberField.inner} onChange={this.validateRegFormNumber}></input></div>
+          <div className="LogInRegFormInputContainer"><span className={this.state.regFormNumberField.valid?"Valid":"NotValid"}>{this.state.regFormNumberField.validString}</span></div>
+          <div className="LogInRegFormInputContainer"><div>Придумайте пароль</div><input type='password' value={this.state.regFormPasswordField.inner} onChange={this.regFormSetPassword}></input></div>
+          <div className="LogInRegFormInputContainer"><span className={this.state.regFormPasswordField.valid?"Valid":"NotValid"}>{this.state.regFormPasswordField.validString}</span></div>
+          <div className="LogInRegFormInputContainer"><div>Подтвердите пароль</div><input type='password' value={this.state.regFormPasswordConfField.inner} onChange={this.regFormConfPassword}></input></div>
+          <div className="LogInRegFormInputContainer"><span className={this.state.regFormPasswordConfField.valid?"Valid":"NotValid"}>{this.state.regFormPasswordConfField.validString}</span></div>
           <div>
             {((this.state.regFormNameField.valid && this.state.regFormEMailField.valid && this.state.regFormNumberField.valid && this.state.regFormPasswordConfField.valid && this.state.regFormPasswordField.valid) &&
               <button onClick={this.registerUser} className='ButtonValid'>Зарегистрироваться</button> ) || 
               (<button className="ButtonNotValid">Зарегистрироваться</button>)}
           </div>
-          <div>Уже регистрировались? <span onClick={this.openLogInForm} className="Link">Войти</span></div>
+          <div className="LogInRegFormInputContainer">Уже регистрировались? <span onClick={this.openLogInForm} className="Link">Войти</span></div>
           </div> 
         } 
         </div>
@@ -379,7 +386,7 @@ class Registration extends React.PureComponent {
                     <div className='Date'>{v.date}</div>
                     <div className="Time">{v.time}</div>
                     <div className="Items">{currentOrder}</div>
-                    <div className="Total">{v.totalSum}</div>
+                    <div className="Total">{v.totalSum} Br</div>
                 </div>
             )
         }
@@ -389,7 +396,7 @@ class Registration extends React.PureComponent {
         popUpForm = 
         <div className='LogInRegFormContainer' data='LogInRegFormContainer'  onClick={this.closeAllForms}>
             <div className='Cabinet'>
-                <button onClick={this.closeCabinet}>Закрыть кабинет</button>
+            <div className="CancelButton"><img src="../pictures/cancel.png"onClick={this.closeCabinet}/></div>
                 <h2>Ваши заказы</h2>
                 <div className='CabinetOrderCotainer'>
                     <div className='Date'>Дата заказа</div>
@@ -398,7 +405,7 @@ class Registration extends React.PureComponent {
                     <div className="Total">Общая сумма</div>
                 </div>
                 {userOrders}
-            </div>
+                </div>
         </div>
       }
       return (

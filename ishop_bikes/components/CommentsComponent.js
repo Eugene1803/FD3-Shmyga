@@ -3,7 +3,7 @@ import isoFetch from 'isomorphic-fetch';
 import './ItemPhoto.css';
 import {connect} from 'react-redux';
 import { NavLink } from 'react-router-dom';
-
+import "./CommentsComponent.css";
 class CommentsComponent extends React.Component {
     state = {
         textAreaValue: ''
@@ -79,7 +79,7 @@ class CommentsComponent extends React.Component {
         let commentsList = [];
         commentsList = this.props.item.comments.map((v,i) =>
             <div key={i} className="CommentContainer">
-                <div>
+                <div className="CommentInfo">
                     {v.user} {v.date} {v.time}
                 </div>
                 <div>
@@ -89,10 +89,11 @@ class CommentsComponent extends React.Component {
         )    
         return(
           <div className="CommentsComponentContainer">
-                   <div>{(!commentsList.length && 'Комментариев нет') ||
+          <h3>Комментарии</h3>
+                   <div className="CommentsList">{(!commentsList.length && 'Комментариев нет') ||
                    commentsList.reverse()}
                     </div>
-                    <div>
+                    <div className="CommentInput">
                         <textarea value={this.state.textAreaValue} onChange={this.setTextAreaValue}>
 
                         </textarea>

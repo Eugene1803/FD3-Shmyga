@@ -1,0 +1,13 @@
+.ScoreComponent img{
+    width: 20%;
+}
+.ScoreComponent button {
+    display: block;
+    margin: auto;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.ScoreComponent button:hover {
+    box-shadow: 0 0 5px blue;
+}

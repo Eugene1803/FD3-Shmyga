@@ -1,6 +1,12 @@
 .ItemPhotoContainer {
     width: 100%;
 }
+.ItemPhotoContainer .MainPhoto img{
+    width: 80%;
+}
+.ItemPhotoContainer .MainPhoto{
+    text-align: center;
+}
 .ItemPhotoContainer .Chosen {
     border: 2px solid blue;
 }
@@ -8,11 +14,15 @@
     display: flex;
     width: 100%;
     text-align: center;
+    justify-content: center;
+    padding: 5px;
+    box-shadow: 0 0 5px gray;
 }
 .ItemPhotoContainer .ImageExample {
     width: 15%;
     display: inline-block;
     text-align: center;
+    margin: 10px;
 }
 .ItemPhotoContainer .ImageExample img {
     display:block;

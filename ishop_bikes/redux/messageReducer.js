@@ -1,5 +1,5 @@
 const initState={
-    text: '',
+    text: 'Добро пожловать!',
     key: 0
   }
   
@@ -13,7 +13,13 @@ const initState={
         };
         return newState;
       }
-  
+      case 'ALERT': {
+        let newState={...state,
+          text: action.text,
+          key: (state.key+1)
+        };
+        return newState;
+      }
       
       default:
         return state;

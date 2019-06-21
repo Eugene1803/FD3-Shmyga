@@ -1,10 +1,19 @@
 .ItemComponentMode1 {
     display: flex;
     width: 100%;
+    margin-top: 5px;
+    box-shadow: 0 0 5px gray inset;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.ItemComponentMode1>div {
+    padding: 5px;
+    
 }
 .ItemComponentMode1 .ImageContainer {
     position: relative;
-    flex: 1 1;
+    flex: 1 1 100px;
+    padding: 5px;
 }
 .ItemComponentMode1 .OnImageBlock {
     position: absolute;
@@ -43,7 +52,7 @@
     margin: 2px;
 }
 .ItemComponentMode1 .ItemDescriptionContainer{
-    flex: 1 1;
+    flex: 2 1;
 }
 .ItemComponentMode1 .ItemDescriptionContainer .ItemDescription {
     display: flex;
@@ -51,19 +60,105 @@
 .ItemComponentMode1 .ItemDescriptionContainer .ItemDescription span {
     flex: 1 1;
     border-bottom: 1px solid gainsboro;
-    font-size: 1.5em;
+}
+.ItemComponentMode1 .OrderContainer {
+    flex: 1 1;
 }
 .ItemComponentMode1 .OrderContainer .ItemQuantYes {
-    color: green;
+    color:  rgb(27, 216, 23);
 }
 .ItemComponentMode1 .OrderContainer .ItemQuantNo {
-    color: red;
+    color: rgb(232, 23, 58);
 }
 .ItemComponentMode1 .OrderContainer .BasketButtonYes {
-    background-color: green;
+    background-color: rgb(27, 216, 23);
+    color: snow;
+    border-radius: 5px;
+    border-width: 0;
+    box-shadow:0 0 5px rgb(27, 216, 23);
+    cursor: pointer;
+    padding: 5px;
+    font-size: 110%;
+
     color: snow;
 }
 .ItemComponentMode1 .OrderContainer .BasketButtonNo {
     background-color: gainsboro;
     color: gray;
+}
+@media all and (max-width: 800px){
+    .ItemComponentMode1 {
+        flex-direction: column;
+    }
+    .ItemComponentMode1 .ImageContainer {
+        position: relative;
+        flex: 1 1 100px;
+        padding: 5px;
+        order: 2;
+        width: 80%;
+        margin:auto;
+    }
+    .ItemComponentMode1 .OrderContainer {
+        flex: 1 1;
+        order: 3;
+    }
+    .ItemComponentMode1 .ItemDescriptionContainer{
+        flex: 2 1;
+        order: 1;
+    }
+}
+.ItemComponentContainerMode2 h2 {
+    text-align: center;
+}
+.ItemComponentContainerMode2 .ItemDescription {
+    display: flex;
+}
+.ItemComponentContainerMode2 .ItemDescription>*{
+    flex: 1 1;
+    padding-left: 20px;
+    padding: 5px;
+    border-bottom: 2px solid lightgray;
+}
+.ItemComponentContainerMode2 .ItemDescription .Main {
+    font-size: 120%;
+    font-weight: 600;
+}
+.ItemComponentContainerMode2 .Price {
+    text-align: center;
+    font-size: 200%;
+    padding: 20px;
+}
+.ItemComponentContainerMode2 .CartImage {
+    width: 50px;
+}
+
+.ItemComponentContainerMode2 .BasketButtonYes {
+    background-color: rgb(27, 216, 23);
+    color: snow;
+    border-radius: 5px;
+    border-width: 0;
+    box-shadow:0 0 5px rgb(27, 216, 23);
+    cursor: pointer;
+    padding: 20px;
+    font-size: 200%;
+
+}
+.ItemComponentContainerMode2 .ToBasket {
+    padding: 10px;
+    text-align: center;
+}
+.ItemComponentContainerMode2 .BasketButtonNo {
+    background-color: snow;
+    color: lightgrey;
+    border-radius: 5px;
+    border: 2px solid gray;
+    cursor: pointer;
+    padding: 20px;
+    font-size: 150%;
+
+}
+.ItemComponentContainerMode2 .ScoreContainer {
+    width: 50%;
+    margin:auto;
+    padding: 20px;
 }

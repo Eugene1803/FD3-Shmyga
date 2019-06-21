@@ -1,0 +1,38 @@
+.CommentContainer {
+    padding: 10px;
+    margin:auto;
+    border-radius: 10px;
+    box-shadow: 0 0 5px gray;
+    margin-top: 10px;
+}
+
+.CommentsComponentContainer h3 {
+    text-align: center;
+}
+.CommentsComponentContainer .CommentsList {
+    margin:auto;
+    
+    width: 90%;
+    padding: 10px;
+    box-shadow: 0 0 10px gray;
+}
+.CommentsComponentContainer .CommentInput {
+    width: 90%;
+    margin: auto;
+}
+.CommentsComponentContainer .CommentInput textarea {
+    font-family: sans-serif;
+    min-height: 100px;
+    width: 100%;
+    margin: 10px;
+}
+.CommentsComponentContainer .CommentInput button {
+    display: block;
+    margin: auto;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.CommentsComponentContainer .CommentInput button:hover {
+    box-shadow: 0 0 5px blue;
+}

@@ -7,6 +7,99 @@
     left: 0;
     top: 0;
 }
+.BasketPopUpContainer .CancelButton img {
+    width: 30px;
+    position:absolute;
+    right: -15px;
+    top: -15px;
+    cursor:pointer;
+} 
 .BasketPopUpContainer .Basket {
     background-color: snow;
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    top: 5%;
+    border-radius: 10px;
+    box-shadow: 0 0 5px white;
+    transition: 0.5s;
+}
+
+.BasketPopUpContainer .Basket h1 {
+    text-align: center;
+}
+.BasketPopUpContainer .BasketTableHead,  .BasketPopUpContainer .BasketDeletedItem, .BasketPopUpContainer .BasketItem{
+    display:flex;  
+    overflow: hidden;  
+}
+.BasketPopUpContainer .BasketTableHead {
+    padding: 5px;
+    font-size: 120%;
+}
+.BasketPopUpContainer .BasketItem, .BasketPopUpContainer .BasketDeletedItem {
+    transition-duration: 0.8s;
+    overflow: hidden;
+    
+    box-shadow: 0 0 3px gray inset;
+}
+
+.BasketPopUpContainer .BasketItem {
+    height: 50px;
+    position:relative;
+    padding: 5px;
+}
+.BasketPopUpContainer .BasketDeletedItem{
+    height: 0px;
+    background-color: rgb(242, 4, 60,0.6);
+    padding: 0px;
+}
+.BasketPopUpContainer .ItemName {
+    flex: 2 1;
+    text-align: center;
+} 
+.BasketPopUpContainer .ItemQuantity{
+    flex: 1 2 ;
+    text-align: center;
+} 
+.BasketPopUpContainer .ItemSum{
+    flex: 1 2 ;
+    text-align: center;
+}
+.BasketPopUpContainer .ItemAction{
+    flex: 1 2;
+    text-align: center;
+}
+.BasketPopUpContainer .BasketItem .ItemAction:hover {
+    cursor: pointer;
+    color:red;
+    text-decoration: underline;
+}
+.BasketPopUpContainer .Total {
+    text-align: center;
+    font-size: 150%;
+}
+.BasketMainPageContainer .CartContainer {
+    
+    display: flex;
+    width: 5em;
+}
+.BasketMainPageContainer .CartImageContainer img {
+    height: 3em;
+}
+.BasketMainPageContainer button {
+    background-color: rgb(27, 216, 23);
+    border-radius: 5px;
+    color: white;
+    border: 0px solid transparent;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.BasketMainPageContainer button:hover {
+    box-shadow: 0 0 5px blue;
+    background-color: white;
+    color:blue;
+}
+.BasketMainPageContainer {
+ vertical-align: middle;
+ text-align: right;
 }

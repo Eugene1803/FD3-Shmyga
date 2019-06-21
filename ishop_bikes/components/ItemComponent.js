@@ -4,6 +4,7 @@ import './ItemComponent.css';
 import {connect} from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import ItemPhoto from './ItemPhoto';
+import ScoreComponent from './ScoreComponent';
 import CommentsComponent from './CommentsComponent';
 class ItemComponent extends React.PureComponent {
 
@@ -21,7 +22,10 @@ class ItemComponent extends React.PureComponent {
      }
      addToBasket = () => {
         if(!this.props.item.quantity){
-            return alert('Данного товара нет в наличии');
+            return this.props.dispatch({
+                type:'ALERT',
+                text: 'Данного товара нет в наличии!'
+            })
         }
 
         this.props.dispatch({
@@ -64,20 +68,20 @@ class ItemComponent extends React.PureComponent {
                     </div>
                     <div className='ItemDescriptionContainer'>
                         <h2>{this.props.item.producer} {this.props.item.model}</h2>
-                        <div className='ItemDescription'><span>Рейтинг</span><span>{this.props.item.score}
+                        <div className='ItemDescription'><span>Рейтинг</span><span>
                             <div style={{width: '80%', height: '80%', display: 'inline-block'}}>
                             <div style={{width:(this.props.item.score/5*100)+'%', height: '100%', backgroundColor:'green',display: 'inline-block'}}></div>
-                            <div style={{width:(100-this.props.item.score/5*100)+'%', height: '100%', backgroundColor:'red',display: 'inline-block'}}></div>
+                            <div style={{width:(100-this.props.item.score/5*100)+'%', height: '100%', backgroundColor:(this.props.item.votesQuant)?'red':"lightgray",display: 'inline-block'}}></div>
                             </div>
                             </span>
                         </div>
-                        <div className='ItemDescription'><span>Класс</span><span>{this.props.item.bikeClass}</span></div>
-                        <div className='ItemDescription'><span>Возрастная группа</span><span>{this.props.item.ageGroup}</span></div>
+                        <div className='ItemDescription'><span>Класс</span><span>{this.props.item.bikeClassRus}</span></div>
+                        <div className='ItemDescription'><span>Возрастная группа</span><span>{this.props.item.ageGroupRus}</span></div>
                         <div className='ItemDescription'><span>Количество скоростей</span><span>{this.props.item.speedQuantity}</span></div>
                         <div className='ItemDescription'><span>Год выпуска</span><span>{this.props.item.yearProd}</span></div>
                     </div>
                     <div className="OrderContainer">
-                        <div>{this.props.item.price}</div>
+                        <div>{this.props.item.price} Br</div>
                         <div className={this.props.item.quantity?'ItemQuantYes':"ItemQuantNo"}>{this.props.item.quantity?'В наличии':'Нет в наличии'}</div>
                         <div><button className={this.props.item.quantity?'BasketButtonYes':"BasketButtonNo"} onClick={this.addToBasket} data={this.props.item}>В корзину</button></div>
                         <div><NavLink to={'/bikes/'+this.props.item.id}>Просмотреть полную информацию о товаре</NavLink></div>
@@ -91,18 +95,36 @@ class ItemComponent extends React.PureComponent {
             <div className='ItemComponentContainerMode2'>
                 <h2>{this.props.item.producer} {this.props.item.model}</h2>
                 <div className='ItemInfoContainer'>
-                    <ItemPhoto images={this.props.item.pictures}/>
-                    <div>
-                    <div className='ItemDescription'><span>Класс</span><span>{this.props.item.bikeClass}</span></div>
-                        <div className='ItemDescription'><span>Возрастная группа</span><span>{this.props.item.ageGroup}</span></div>
-                        <div className='ItemDescription'><span>Количество скоростей</span><span>{this.props.item.speedQuantity}</span></div>
-                        <div className='ItemDescription'><span>Год выпуска</span><span>{this.props.item.yearProd}</span></div>
+                <div className="ItemDescriptionContainer">
+                    <div className='ItemDescription'><span className="Main">Класс</span><span>{this.props.item.bikeClassRus}</span></div>
+                        <div className='ItemDescription'><span className="Main">Возрастная группа</span><span>{this.props.item.ageGroupRus}</span></div>
+                        <div className='ItemDescription'><span className="Main">Количество скоростей</span><span>{this.props.item.speedQuantity}</span></div>
+                        <div className='ItemDescription'><span className="Main">Год выпуска</span><span>{this.props.item.yearProd}</span></div>
                     </div>
+                    <div className='ItemDescription'><span>Рейтинг</span><span>
+                            <div style={{width: '80%', height: '80%', display: 'inline-block'}}>
+                            <div style={{width:(this.props.item.score/5*100)+'%', height: '100%', backgroundColor:'green',display: 'inline-block'}}></div>
+                            <div style={{width:(100-this.props.item.score/5*100)+'%', height: '100%', backgroundColor:(this.props.item.votesQuant)?'red':"lightgray",display: 'inline-block'}}></div>
+                            </div>
+                            </span>
+                        </div>
+                    <div className="ItemPhotoContainer">
+                    <ItemPhoto images={this.props.item.pictures}/>
+                    </div>
+                    
+                    <div className="OrderContainer">
+                    <div className="Price">{this.props.item.price} Br</div>
+                        <div className="ToBasket"><button className={this.props.item.quantity?'BasketButtonYes':"BasketButtonNo"} onClick={this.addToBasket} data={this.props.item}>В корзину<img className="CartImage" src="../pictures/cart.png"/></button></div>
+                        
+                    </div>   
+                </div>
                     <div className="CommentsContainer">
                         <CommentsComponent item={this.props.item}/>
                     </div>
+                    <div className="ScoreContainer">
+                        <ScoreComponent item={this.props.item}/>                    
+                    </div>
                 </div>
-            </div>
         )
       );
       

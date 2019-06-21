@@ -1,0 +1,33 @@
+.PageBikesContainer {
+    display: flex;
+}
+.PageBikesContainer .PageBikesFilterContainer {
+    padding: 5px;
+    box-shadow: 0 0 5px gray;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.PageBikesContainer .PageBikesFilter {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.PageBikesContainer .SelectPageBikes {
+    width: auto;
+}
+.PageBikesContainer .PriceInput{
+    width: 4em;
+}
+.ShowFilterButton {
+    display: none;
+}
+@media all and (max-width: 640px){
+    .PageBikesContainer {
+        flex-direction: column;
+    }
+    .ShowFilterButton {
+        display: block;
+    }
+    .HideFilterButton {
+        display: none;
+    }
+}

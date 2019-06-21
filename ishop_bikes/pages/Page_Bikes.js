@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 import { withRouter } from "react-router";
 import {comparePrice, compareSales, compareScore} from './../compareProp.js';
 import ItemComponent from "../components/ItemComponent";
+import "./Page_Bikes.css";
 //import Logo from './pages/Logo.js';
 //import Basket from './pages/Basket.js';
 class Page_Bikes extends React.PureComponent {
@@ -47,7 +48,7 @@ class Page_Bikes extends React.PureComponent {
             ageGroup: {'baby': true, 'adolescent': true, 'mature': true}
         },
         bikesSort: {price: true, salesQuant: false, buyersScore: false},
-        quantShownOnPage: '2',
+        quantShownOnPage: '6',
         itemsSorted: 'price'
     }
     
@@ -423,58 +424,63 @@ class Page_Bikes extends React.PureComponent {
           (this.props.bikes.status <= 1 && <div>Идет загрузка...</div>) ||
           (this.props.bikes.status == 2 && <div>ОШИБКА ЗАГРУЗКИ</div>)||
         ( this.props.bikes.status == 3 &&
-        <div>
-            <div>Показывать товаров на странице
-                <select defaultValue={this.state.quantShownOnPage} onChange={this.setQuantOnPage}>
+        <div className="PageBikesContainer">
+            <div className="PageBikesFilterContainer">
+            <div className="PageBikesFilter">Показывать товаров на странице
+                <select className="SelectPageBikes" defaultValue={this.state.quantShownOnPage} onChange={this.setQuantOnPage}>
                     <option value='2'>2</option>
                     <option value='4'>4</option>
                     <option value='6'>6</option>
                 </select>
             </div>
-            <div>Показывать товаров на странице
-                <select defaultValue={this.state.quantShownOnPage} onChange={this.setSort}>
+            <div className="PageBikesFilter">Показывать товаров на странице
+                <select className="SelectPageBikes" defaultValue={this.state.quantShownOnPage} onChange={this.setSort}>
                     <option value='price'>По цене</option>
                     <option value='sales'>По продажам</option>
                     <option value='score'>По оценке</option>
                 </select>
             </div>
+            <div className="PageBikesFilter">
             <div>
-            
-            Цена от:<input type='text' placeholder={this.state.minPrice} data='minPrice' defaultValue='' onBlur={this.setPriceDiap}></input>
-            до <input type='text'placeholder={this.state.maxPrice} defaultValue='' data='maxPrice' onBlur={this.setPriceDiap}></input>
+            Цена от:<br/>
+            <input className="PriceInput" type='text' placeholder={this.state.minPrice} data='minPrice' defaultValue='' onBlur={this.setPriceDiap}></input></div>
+            <div>
+            до<br/>
+             <input className="PriceInput" type='text'placeholder={this.state.maxPrice} defaultValue='' data='maxPrice' onBlur={this.setPriceDiap}></input></div>
             </div>
-           <div>Возрастная группа
+           <div className="PageBikesFilter">Возрастная группа
            <div><input type='checkbox' onClick={this.setFilterAgeGroup} value='baby'/>Детские</div>
            <div><input type='checkbox' onClick={this.setFilterAgeGroup} value='adolescent'/>Подростковые</div>
            <div><input type='checkbox' onClick={this.setFilterAgeGroup} value='mature'/>Взрослые</div>
             </div>
-            <div>Класс велосипеда
+            <div className="PageBikesFilter">Класс велосипеда
             <div><input type='checkbox' onClick={this.setFilterBikeClass} value='mountain'/>Горные хартдейлы</div>
             <div><input type='checkbox' onClick={this.setFilterBikeClass} value='city'/>Городские</div>
             <div><input type='checkbox' onClick={this.setFilterBikeClass} value='highway'/>Шоссейные</div> 
             </div>    
-            <div>Производители
+            <div className="PageBikesFilter">Производители
                 <div><input type='checkbox' onClick={this.setFilterProducer} value='Aist'/>Aist</div>
                 <div><input type='checkbox' onClick={this.setFilterProducer} value='Stream'/>Stream</div>
                 <div><input type='checkbox' onClick={this.setFilterProducer} value='Cronus'/>Cronus</div>
                 <div><input type='checkbox' onClick={this.setFilterProducer} value='Challenger'/>Challenger</div>
                 <div><input type='checkbox' onClick={this.setFilterProducer} value='Aspect'/>Aspect</div>
             </div>
-            <div>
+            <div className="PageBikesFilter">
                 Год выпуска
                 <div><input type='checkbox' onClick={this.setFilterYearProd} value='2017'/>2017</div>
                 <div><input type='checkbox' onClick={this.setFilterYearProd} value='2018'/>2018</div>
                 <div><input type='checkbox' onClick={this.setFilterYearProd} value='2019'/>2019</div>
             </div>
-            <div>
+            <div className="PageBikesFilter">
                 Количество скоростей
                 <div><input type='checkbox' onClick={this.setFilterSpeedQuantity} value='16'/>16</div>
                 <div><input type='checkbox' onClick={this.setFilterSpeedQuantity} value='24'/>24</div>
                 <div><input type='checkbox' onClick={this.setFilterSpeedQuantity} value='32'/>32</div>
             </div>
-
-            <div>{bikesListOnCurPage.length?bikesListOnCurPage:''}</div>
+            </div>
+            <div>{bikesListOnCurPage.length?bikesListOnCurPage:''}
             <div>{pages}</div>
+            </div>
         </div>
         )
       );
