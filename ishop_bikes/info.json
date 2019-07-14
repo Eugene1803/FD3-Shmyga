@@ -274,7 +274,7 @@
       "id": 6,
       "producer": "Aist",
       "model": "Crossway K",
-      "quantity": 20,
+      "quantity": 17,
       "price": 750,
       "yearProd": "2019",
       "speedQuantity": "16",
@@ -660,9 +660,16 @@
       "bikeClass": "highway",
       "bikeClassRus": "шоссейный",
       "ageGroupRus": "подростковый",
-      "score": 0,
-      "votesQuant": 0,
-      "comments": [],
+      "score": 5,
+      "votesQuant": 1,
+      "comments": [
+        {
+          "date": "22.06.2019",
+          "time": "10:24",
+          "user": "Eugene",
+          "content": "regergegrgergerg"
+        }
+      ],
       "sales": 5,
       "pictures": [
         "/pictures/highway2/high3.jpg",
@@ -1009,7 +1016,7 @@
       "id": 41,
       "producer": "Aspect",
       "model": "Goer 554",
-      "quantity": 6,
+      "quantity": 2,
       "price": 820,
       "yearProd": "2018",
       "speedQuantity": "32",
@@ -1166,7 +1173,14 @@
       "ageGroupRus": "подростковый",
       "score": 0,
       "votesQuant": 0,
-      "comments": [],
+      "comments": [
+        {
+          "date": "22.06.2019",
+          "time": "11:07",
+          "user": "Eugene",
+          "content": "ываываываыаываываыва"
+        }
+      ],
       "sales": 5,
       "pictures": [
         "/pictures/highway2/high3.jpg",
@@ -1467,7 +1481,14 @@
       "ageGroupRus": "детский",
       "score": 3.5,
       "votesQuant": 2,
-      "comments": [],
+      "comments": [
+        {
+          "date": "22.06.2019",
+          "time": "09:31",
+          "user": "unnamed",
+          "content": "gdfgdfgdfg"
+        }
+      ],
       "sales": 5,
       "pictures": [
         "/pictures/mountain2/mount3.jpeg",
@@ -1625,6 +1646,32 @@
             }
           ],
           "totalSum": 3500
+        },
+        {
+          "date": "22.06.2019",
+          "time": "10:22",
+          "order": [
+            {
+              "name": "Aspect",
+              "model": "Goer 554",
+              "price": 820,
+              "quantity": 4
+            }
+          ],
+          "totalSum": 3280
+        },
+        {
+          "date": "22.06.2019",
+          "time": "11:41",
+          "order": [
+            {
+              "name": "Aist",
+              "model": "Crossway K",
+              "price": 750,
+              "quantity": 3
+            }
+          ],
+          "totalSum": 2250
         }
       ]
     },

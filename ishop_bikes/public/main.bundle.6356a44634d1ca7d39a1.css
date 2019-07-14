@@ -80,7 +80,11 @@
     .CatalogLinksMobile img, .CatalogLinksMobileHide img{
         cursor: pointer;
         width: 30px;
+        z-index: 100;
     }
+}.PageStart {
+    padding: 10px;
+    min-height: 70vh;
 }.ItemComponentMode1 {
     display: flex;
     width: 100%;
@@ -345,6 +349,23 @@
 .ShowFilterButton {
     display: none;
 }
+.PageBikesPages {
+    display: flex;
+    justify-content: center;
+} 
+
+.PageBikesPages .PageLink, .PageBikesPages .ActivePageLink {
+    display: block;
+    text-decoration: none;
+    font-size: 150%;
+    padding: 3px;
+    margin: 3px;
+}
+.PageBikesPages .ActivePageLink {
+    color: white;
+    background-color: blue;
+    box-shadow: 0 0 2px blue;
+}
 @media all and (max-width: 640px){
     .PageBikesContainer {
         flex-direction: column;
@@ -355,6 +376,12 @@
     .HideFilterButton {
         display: none;
     }
+}.PageGaranty {
+    padding: 10px;
+}.PagePay {
+    padding: 10px;
+}.PageDelivery {
+    padding: 10px;
 }div.LogInRegFormContainer {
     min-width: 100%;
     min-height: 100%;
@@ -602,6 +629,19 @@ div.LogInRegFormLoading{
 .BasketMainPageContainer {
  vertical-align: middle;
  text-align: right;
+}
+.BasketMakeOrderButton {
+    text-align: center;
+    padding: 5px;
+}
+.BasketMakeOrderButton button:hover {
+    background-color: snow;
+    box-shadow: 0 0 3px blue;
+    
+}
+.BasketMakeOrderButton button {
+    cursor: pointer;
+    font-size: 150%;
 }.PopUpMessage {
     position: fixed;
     animation: PopUpMessageDissapear 5s ;
@@ -610,7 +650,7 @@ div.LogInRegFormLoading{
     box-shadow: 0 0 10px gray;
     top: -100%;
     border-radius: 10px;
-    z-index: 100;
+    z-index: 200;
     left: 20px;
 }
 @keyframes PopUpMessageDissapear 
@@ -623,6 +663,40 @@ div.LogInRegFormLoading{
 background-color:rgb(215, 220, 221);
 padding-top: 10px;
 padding-bottom: 10px;
+}
+.HeaderLogo {
+    text-align: center;
+    display: block;
+    margin: auto;
+    width: 50%;
+}.Footer {
+    background-color:rgb(215, 220, 221);
+padding-top: 10px;
+padding-bottom: 10px;
+margin-top: 20px;
+}
+.FooterImagePay {
+    text-align: center;
+    
+}
+.FooterImagePay img {
+    width: 50%;
+}
+.FooterImageSoc {
+    text-align: center;
+}
+.FooterCompInfo {
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: 80%;
+    color: darkgray;
+}
+.FooterImageSoc {
+    text-align: center;
+}
+
+.FooterImageSoc img {
+    width: 40%;
 }body {
     margin: 0;
     font-family: sans-serif;
@@ -631,4 +705,4 @@ padding-bottom: 10px;
  box-sizing: border-box;   
 }
 
-/*# sourceMappingURL=main.bundle.267695ae29664266d4cf.css.map*/
+/*# sourceMappingURL=main.bundle.6356a44634d1ca7d39a1.css.map*/
